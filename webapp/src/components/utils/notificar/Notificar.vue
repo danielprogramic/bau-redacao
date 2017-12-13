@@ -1,5 +1,5 @@
 <template>
-<div>COMPONENTE INJETADO</div>
+<div>COMPONENTE INJETADO</div>  
 </template>
 <script>
 export default {

@@ -8,6 +8,7 @@ import { sync } from 'vuex-router-sync'
 import store from '@/store/store'
 
 
+
 Vue.use(Vuetify, {
   theme: {
     primary: '#0A1F30',
@@ -16,6 +17,7 @@ Vue.use(Vuetify, {
     footer: '#eeeff1',
     accent: '#82B1FF',
     error: '#FF5252',
+    bluedetail: '#03b4f1',
     info: '#2196F3',
     success: '#4CAF50',
     warning: '#FFC107',
