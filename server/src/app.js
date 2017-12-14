@@ -22,12 +22,10 @@ app.use(cors())
   //aponta o script das rotas na minha API
 require('./routes')(app)
   // de forma sincrona inicial meu serviço de APis
-sequelize.sync()
-  .then(() => {
-    app.listen(config.port)
-    console.log(`Server started on port ${config.port}`)
-  })
-
-
-// app.listen(process.env.PORT || 8081)
-// console.log(`Server started on port ${config.port}`)
+  // sequelize.sync()
+  //   .then(() => {
+  //     app.listen(config.port)
+  //     console.log(`Server started on port ${config.port}`)
+  //   })
+app.listen(process.env.PORT || 8081)
+console.log(`Server started on port ${config.port}`)
