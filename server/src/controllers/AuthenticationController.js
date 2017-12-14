@@ -6,8 +6,8 @@ const config = require('../config/config')
 const Promise = require('bluebird')
 const bcrypt = Promise.promisifyAll(require('bcrypt-nodejs'))
 let login = {
-    email: "danielprogramic@gmail.com",
-    password: "123",
+    email: "admin@domrock.com.br",
+    password: "teste12",
   }
   //DEVE FICAR NO MODELO---------------------------------------------------------- 
 function jwtSignUser(user) {
