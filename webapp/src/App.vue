@@ -1,15 +1,10 @@
 <template>
   <v-app id="inspire" light>
-
-    <dr-navigation 
-       :drawer="drawer">
+  
+    <dr-navigation :drawer="drawer">
     </dr-navigation>
-
-    <dr-toolbar 
-       @drawer="drawer = $event" 
-       :drawer="drawer" 
-       @rightDrawer="rightDrawer = $event" 
-       :rightDrawer="rightDrawer">
+  
+    <dr-toolbar @drawer="drawer = $event" :drawer="drawer" @rightDrawer="rightDrawer = $event" :rightDrawer="rightDrawer">
     </dr-toolbar>
   
     <v-content>
@@ -19,13 +14,18 @@
         </v-fade-transition>
       </div>
       <v-container v-if="$store.state.isUserLoggedIn" fluid>
+        <v-layout justify-left>
+          <v-btn icon @click.stop="drawer = !drawer">
+            <v-icon style="font-size:22px;color:#8f8f9b">sort</v-icon>
+          </v-btn>
+        </v-layout>
         <v-fade-transition mode="out-in">
           <router-view></router-view>
         </v-fade-transition>
       </v-container>
       <dr-footer :loggedIn="!$store.state.isUserLoggedIn"></dr-footer>
     </v-content>
-    
+  
     <v-navigation-drawer v-if="$store.state.isUserLoggedIn" class="secondary" temporary fixed :right="right" v-model="rightDrawer" app>
       <v-toolbar flat>
         <v-list>
@@ -49,7 +49,9 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-  
+    <v-footer v-if="$store.state.isUserLoggedIn" :fixed="false"  app>
+      <span class="colorblackop">&copy;  Copyright 2013 ― Todos os direitos reservados </span>
+    </v-footer>
   </v-app>
 </template>
 
@@ -82,6 +84,6 @@
   }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" >
 @import "../stylus/main"
 </style>

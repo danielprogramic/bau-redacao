@@ -25,16 +25,16 @@
     data() {
       return {
         items: [{
-            icon: 'archive',
-            title: 'Biblioteca',
-            background: "primary",
+            icon: '',
+            title: '',
+            background: "secondary",
             color: "#fff",
             size: '32',
           },
           {
-            icon: 'more_horiz',
-            title: 'Biblioteca',
-            background: "neutro",
+            icon: '',
+            title: '',
+            background: "secondary",
             color: "#0A1F30",
             size: '22',
           },

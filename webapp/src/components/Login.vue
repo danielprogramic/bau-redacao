@@ -24,7 +24,7 @@
             <v-card height="320px">
               <v-card-title primary-title>
                 <div>
-                  <div style="font-weight: 900;padding-left:15px;" class="headline">{{msg}}</div>
+                  <div style="font-weight: 900;padding-left:15px;" class="headline">{{msg[Number(!show)]}}</div>
                 </div>
               </v-card-title>
               <v-divider></v-divider>
@@ -43,8 +43,8 @@
                         </span>
                       </div>
                       <div key="1" v-if="!show">
-                        <label style="font-weight:bold;" for="">Recuperar Senha</label><br>
-                        <input style="width:100%;" class="layout_input" type="text" v-model="email"><br><br>
+                        <label style="font-weight:bold;" for="">Email</label><br>
+                        <input style="width:100%;" class="layout_input" type="text" v-model="emailrecover"><br><br>
                         <v-btn style="width:30%;float:right;" color="primary">Enviar</v-btn>
                         <span v-on:click="show = !show" style="opacity :0.6;font-size:11px;padding-left:2px;">
                             VOLTAR PARA O LOGIN
@@ -69,9 +69,10 @@
   export default {
     name: 'login',
     data: () => ({
-      msg: 'Entrar',
+      msg: ['Entrar','Recuperar Senha'],
       email: '',
       password: '',
+      emailrecover: '',
       show: true,
       status: false,
     }),

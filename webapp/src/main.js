@@ -17,11 +17,12 @@ Vue.use(Vuetify, {
     footer: '#eeeff1',
     accent: '#82B1FF',
     error: '#FF5252',
-    bluedetail: '#03b4f1',
+    bluedetail: '#00B4F1',
     info: '#2196F3',
     success: '#4CAF50',
     warning: '#FFC107',
     neutro: '#fff',
+    alphablack: '#c0c5ca'
   }
 })
 
