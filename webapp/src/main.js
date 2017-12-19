@@ -7,8 +7,6 @@ import router from './router'
 import { sync } from 'vuex-router-sync'
 import store from '@/store/store'
 
-
-
 Vue.use(Vuetify, {
   theme: {
     primary: '#0A1F30',

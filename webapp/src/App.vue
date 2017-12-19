@@ -26,16 +26,20 @@
       <dr-footer :loggedIn="!$store.state.isUserLoggedIn"></dr-footer>
     </v-content>
   
-    <v-navigation-drawer v-if="$store.state.isUserLoggedIn" class="secondary" temporary fixed :right="right" v-model="rightDrawer" app>
+    <v-navigation-drawer height="40%" v-if="$store.state.isUserLoggedIn" class="secondary" temporary fixed :right="right" v-model="rightDrawer" app>
       <v-toolbar flat>
         <v-list>
           <v-list-tile>
             <v-list-tile-title class="title">
-              <v-icon style="color:#0a1f30;" medium>business_center</v-icon>
-              Módulos
+              <v-icon medium>more_horiz</v-icon>
+              Mais
             </v-list-tile-title>
           </v-list-tile>
+                
         </v-list>
+     <v-btn @click="rightDrawer = false" icon>
+         <v-icon >close</v-icon>
+     </v-btn>
       </v-toolbar>
       <v-divider></v-divider>
       <v-list dense class="pt-0">
@@ -72,8 +76,12 @@
         drawer: true,
         fixed: false,
         items: [{
-          icon: 'library_add',
-          title: 'Biblioteca'
+          icon: 'settings',
+          title: 'Configurações'
+        },
+        {
+          icon: 'help',
+          title: 'Ajuda'
         }],
         miniVariant: false,
         right: true,
