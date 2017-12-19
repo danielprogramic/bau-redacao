@@ -56,8 +56,8 @@
 </template>
 
 <script>
-  import Toolbar from '@/components/Shared/ToolBar'
-  import Navigation from '@/components/Shared/Navigation'
+  import Toolbar from '@/components/Shared/ToolBar/ToolBar'
+  import Navigation from '@/components/Shared/Navigation/Navigation'
   import Footer from '@/components/Shared/Footer'
   
   export default {

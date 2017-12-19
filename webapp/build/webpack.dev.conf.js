@@ -33,6 +33,7 @@ module.exports = merge(baseWebpackConfig, {
     }),
     new FriendlyErrorsPlugin(),
     // // https://www.npmjs.com/package/browser-sync-webpack-plugin
+    //browser-sync-webpack-plugin
     // new BrowserSyncPlugin(
     //   // BrowserSync options 
     //   {

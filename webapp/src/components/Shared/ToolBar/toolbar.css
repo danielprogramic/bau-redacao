@@ -1,0 +1,23 @@
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+}
+
+.expansion-panel li {
+    border: 10px solid #ddd;
+}
+
+.base_md {
+    background-color: red !important;
+}
+
+.colorblue {
+    color: #03b4f1;
+}
+
+.colorblackop {
+    color: #c9cdd0;
+}

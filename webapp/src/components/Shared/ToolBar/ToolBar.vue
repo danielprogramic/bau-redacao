@@ -52,8 +52,9 @@
       </v-btn>
     </v-toolbar>
   
-        <div class="hidden-md-and-up">
-            <v-expansion-panel class="pink" dark="dark" app>
+        <div v-if="$store.state.isUserLoggedIn"  class="hidden-md-and-up" app>
+          
+            <v-expansion-panel class="pink" dark="dark" >
                 <v-expansion-panel-content  class="primary" >
                     <div slot="header">
                         <router-link class="nav-item" to="/">
@@ -72,9 +73,12 @@
                     </v-card>
                 </v-expansion-panel-content>
             </v-expansion-panel>
+
+             <span style="float:left;" class="colorblue">TITULO DO CONJUNTO DE ANÁLISES</span>
+             <span style="float:right;" class="colorblackop">CNPJ:03.649.560/0001-60</span>
         </div>
   
-    <v-toolbar class="neutro" v-if="$store.state.isUserLoggedIn" :clipped-left="true" app>
+    <v-toolbar class="neutro hidden-sm-and-down" v-if="$store.state.isUserLoggedIn" :clipped-left="true" app>
       <v-list-tile-action>
         <v-container class="text-xs-center">
           <v-layout row child-flex justify-center align-center wrap>
@@ -117,69 +121,6 @@
       </nav>
   </div>
 </template>
+<script src="./toolbar.js"></script>
+<style src="./toolbar.less" lang="less" scoped></style>
 
-<script>
-  export default {
-    props: [
-      'drawer',
-      'rightDrawer'
-    ],
-    data: () => ({
-      bars: [{
-          'class': 'white'
-        },
-        {
-          'class': '',
-          dark: true
-        },
-        {
-          'class': 'primary',
-          dark: true
-        },
-        {
-          'class': 'elevation-1'
-        }
-      ]
-    }),
-    methods: {
-      drawerFlag() {
-        if (this.drawer) {
-          this.$emit('drawer', false);
-        } else {
-          this.$emit('drawer', true);
-        }
-      },
-      rightDrawerFlag() {
-        if (this.rightDrawer) {
-          this.$emit('rightDrawer', false);
-        } else {
-          this.$emit('rightDrawer', true);
-        }
-      },
-      onLogout() {
-        this.$store.dispatch('setToken', null)
-        this.$store.dispatch('setUser', null)
-        this.$router.push({
-          name: 'login'
-        })
-      }
-    },
-  
-  }
-</script>
-
-<style scoped>
-  .arrow-up {
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid white;
-  }
-
-  .expansion-panel li {
-    border: 10px solid #ddd;
- 
-}
-
-</style>
