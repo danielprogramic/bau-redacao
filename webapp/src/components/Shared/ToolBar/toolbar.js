@@ -1,23 +1,18 @@
 export default {
   props: [
     'drawer',
-    'rightDrawer'
+    'rightDrawer',
   ],
   data: () => ({
-    bars: [{
-        'class': 'white'
+    aumentarwidth: 0,
+    toolbar_obj: [{
+        name: "home_conta",
+        width: 500,
       },
       {
-        'class': '',
-        dark: true
+        name: "mais",
+        width: 200,
       },
-      {
-        'class': 'primary',
-        dark: true
-      },
-      {
-        'class': 'elevation-1'
-      }
     ]
   }),
   methods: {
@@ -28,7 +23,8 @@ export default {
         this.$emit('drawer', true);
       }
     },
-    rightDrawerFlag() {
+    rightDrawerFlag(index) {
+      this.$emit('Umargem', toolbar_obj.width);
       if (this.rightDrawer) {
         this.$emit('rightDrawer', false);
       } else {
@@ -42,5 +38,14 @@ export default {
         name: 'login'
       })
     }
+  },
+  watch: {
+    rightDrawer: function(val) {
+      if (!val) {
+        this.aumentarwidth = 0;
+      } else {
+        this.aumentarwidth = 500;
+      }
+    },
   }
 }
