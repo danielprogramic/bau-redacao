@@ -38,7 +38,7 @@
           </v-layout>
         </v-container>
         <v-spacer></v-spacer>
-
+  
         <v-btn icon>
           <v-icon style="font-size:29px;">notifications</v-icon>
         </v-btn>
@@ -46,30 +46,34 @@
           <v-icon style="font-size:29px;">search</v-icon>
         </v-btn>
         <!-- <v-btn icon @click="onLogout()">
-          <v-icon style="font-size:29px;">person</v-icon>
-        </v-btn> -->
-        <v-btn  v-bind:style="{width: aumentarwidth + 'px'}" @click="rightDrawerFlag(50)">
-          <v-icon style="font-size:29px;">person</v-icon>
-        </v-btn>
-        <v-btn icon @click.stop="rightDrawerFlag(0)">
-          <v-icon style="font-size:29px;">more_horiz</v-icon>
-        </v-btn>
- 
-       <!-- <v-toolbar-items>
-      <v-menu transition="scale-transition">
-      <v-btn dark color="primary" slot="activator">Scale Transition</v-btn>
-      <v-list>
-        <v-list-tile v-for="n in 5" :key="n" @click="">
-          <v-list-tile-title v-text="'Item ' + n"></v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-      </v-menu>
-      </v-toolbar-items>  -->
-
+            <v-icon style="font-size:29px;">person</v-icon>
+          </v-btn> -->
+        <div v-for="(item, i) in toolbar_obj" :key="i">
+          <v-btn icon v-bind:style="{width: item.habilitador ? item.width+'px' : '30px' }" @click="actionDrawer(item.name)">
+            <v-icon style="font-size:29px;">{{item.icon}}</v-icon>
+          </v-btn>
+        </div>
+        <!-- 
+            <v-btn  v-bind:style="{width: aumentarwidth + 'px'}" @click="actionDrawer('home_conta')">
+            <v-icon style="font-size:29px;">person</v-icon>
+          </v-btn>
+          <v-btn icon @click.stop="actionDrawer('mais')">
+            <v-icon style="font-size:29px;">more_horiz</v-icon>
+          </v-btn> 
+          -->
+  
+        <!-- <v-toolbar-items>
+        <v-menu transition="scale-transition">
+        <v-btn dark color="primary" slot="activator">Scale Transition</v-btn>
+        <v-list>
+          <v-list-tile v-for="n in 5" :key="n" @click="">
+            <v-list-tile-title v-text="'Item ' + n"></v-list-tile-title>
+          </v-list-tile>
+        </v-list>
+        </v-menu>
+        </v-toolbar-items>  -->
       </v-toolbar>
-  
       <div v-if="$store.state.isUserLoggedIn" class="hidden-md-and-up" app>
-  
         <v-expansion-panel class="pink" dark="dark">
           <v-expansion-panel-content class="primary">
             <div slot="header">

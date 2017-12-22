@@ -1,50 +1,41 @@
+import Helpers from '@/mixins/Helper'
 export default {
   props: [
-    'drawer',
     'rightDrawer',
   ],
   data: () => ({
-    aumentarwidth: 0,
+    marcador: '',
     toolbar_obj: [{
-        name: "home_conta",
-        width: 500,
+        name: 'home_conta',
+        titulo: 'Daniel Douglas Machado',
+        icon: 'person',
+        marginRight: 68,
+        width: 290,
+        habilitador: false,
       },
       {
-        name: "mais",
-        width: 200,
+        name: 'mais',
+        titulo: 'Mais',
+        icon: 'more_horiz',
+        marginRight: 0,
+        width: 280,
+        habilitador: false,
       },
     ]
   }),
   methods: {
-    drawerFlag() {
-      if (this.drawer) {
-        this.$emit('drawer', false);
-      } else {
-        this.$emit('drawer', true);
-      }
+    actionDrawer(tipo) {
+      this.marcador = tipo;
+      const objAction = Helpers.filters.elements(this.toolbar_obj, tipo, 'name');
+      objAction[0].habilitador = true;
+      this.$emit('OnToolbar', objAction);
     },
-    rightDrawerFlag(index) {
-      this.$emit('Umargem', toolbar_obj.width);
-      if (this.rightDrawer) {
-        this.$emit('rightDrawer', false);
-      } else {
-        this.$emit('rightDrawer', true);
-      }
-    },
-    onLogout() {
-      this.$store.dispatch('setToken', null)
-      this.$store.dispatch('setUser', null)
-      this.$router.push({
-        name: 'login'
-      })
-    }
   },
   watch: {
     rightDrawer: function(val) {
       if (!val) {
-        this.aumentarwidth = 0;
-      } else {
-        this.aumentarwidth = 500;
+        const objAction = Helpers.filters.elements(this.toolbar_obj, this.marcador, 'name');
+        objAction[0].habilitador = false;
       }
     },
   }
