@@ -1,5 +1,5 @@
 <template>
-  <div v-if="$store.state.isUserLoggedIn">
+  <div>
     <v-navigation-drawer fixed :mini-variant="true" :clipped="false" v-model="drawerFlag" class="secondary" dark app>
       <div v-for="(item, i) in items" :key="i">
         <v-list v-bind:class="item.background">

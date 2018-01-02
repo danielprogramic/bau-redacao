@@ -13,12 +13,12 @@
           <v-text-field slot="activator" label="Picker in dialog" v-model="date" prepend-icon="event" readonly></v-text-field>
           <v-date-picker v-model="date" scrollable actions>
             <template slot-scope="{ save, cancel }">
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn flat color="primary" @click="cancel">Cancel</v-btn>
-                <v-btn flat color="primary" @click="save">OK</v-btn>
-              </v-card-actions>
-            </template>
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn flat color="primary" @click="cancel">Cancel</v-btn>
+                  <v-btn flat color="primary" @click="save">OK</v-btn>
+                </v-card-actions>
+</template>
         </v-date-picker>
       </v-dialog> 
      </v-flex>
@@ -34,11 +34,14 @@
         date: null,
         menu: false,
         modal: false,
-        msg: `Se marcares ao largo um lampejo
-              De um farol a mostrar o caminho,
-              Saberá ser o nosso desejo
-              Que jamais tu navegues sozinho'`
+        msg: `Se EDDEDED marcares ao largo um lampejo
+                De um farol a mostrar o caminho,
+                Saberá ser o nosso desejo
+                Que jamais tu navegues sozinho'`
       }
+    },
+    created() {
+      console.log('dedeed')
     }
   }
 </script>

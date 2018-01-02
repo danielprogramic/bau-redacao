@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav>
-      <v-toolbar v-if="$store.state.isUserLoggedIn" dark class="primary hidden-sm-and-down" :clipped-left="true" app>
+      <v-toolbar dark class="primary hidden-sm-and-down" :clipped-left="true" app>
         <!-- <v-toolbar-side-icon style="font-size:22px;" @click.stop="drawerFlag()"></v-toolbar-side-icon> -->
         <v-list-tile-action>
           <v-container class="text-xs-center">
@@ -49,7 +49,7 @@
             <v-icon style="font-size:29px;">person</v-icon>
           </v-btn> -->
         <div v-for="(item, i) in toolbar_obj" :key="i">
-          <v-btn icon v-bind:style="{width: item.habilitador ? item.width+'px' : '30px' }" @click="actionDrawer(item.name)">
+          <v-btn icon v-bind:style="{width: item.habilitador ? item.width+'px' : '30px' }" @click.stop="actionDrawer(item.name)">
             <v-icon style="font-size:29px;">{{item.icon}}</v-icon>
           </v-btn>
         </div>
@@ -143,10 +143,8 @@
 </template>
 
 <script src="./toolbar.js">
-  
 </script>
 
 <style src="./toolbar.less" lang="less" scoped>
-  
 </style>
 

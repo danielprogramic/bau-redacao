@@ -28,6 +28,10 @@ export default {
       this.marcador = tipo;
       const objAction = Helpers.filters.elements(this.toolbar_obj, tipo, 'name');
       objAction[0].habilitador = true;
+
+      const teste = Helpers.filters.elements(this.toolbar_obj, '^home_conta$|^m$', 'name');
+      console.log(teste);
+
       this.$emit('OnToolbar', objAction);
     },
   },
