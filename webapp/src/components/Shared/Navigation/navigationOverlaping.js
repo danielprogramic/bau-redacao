@@ -1,3 +1,4 @@
+import Helpers from '@/mixins/Helper'
 export default {
   props: [
     'toolbarItens'
@@ -7,18 +8,25 @@ export default {
       clipped: false,
       drawer: true,
       fixed: false,
-      items: [{
-          icon: 'settings',
-          title: 'Configurações'
+      listas: [{
+          name: 'mais',
+          itens: [
+            { icon: 'settings', title: 'Configurações' },
+            { icon: 'help', title: 'Ajuda' },
+          ]
         },
         {
-          icon: 'help',
-          title: 'Ajuda'
-        }
+          name: 'home_conta',
+          itens: [
+            { icon: '', title: 'Qualicorp corretora de Seguros S.A', corporation:true },
+            { icon: 'account_box', title: 'Minha conta' },
+            { icon: 'supervisor_account', title: 'Usuários' },
+            { icon: 'folder_shared', title: 'Acessos' },
+          ]
+        },
       ],
       miniVariant: false,
       right: true,
-      title: 'Dom Rock'
     }
   },
   methods: {
@@ -32,17 +40,18 @@ export default {
       this.$router.push({
         name: 'login'
       })
-    }
-  },
-  computed: {
-    toolbarItensFlag: {
-      get: function() {
-        return this.toolbarItens
-      },
-      set: function(val) {
-        this.$emit('emtoolbarItens', val)
-      }
+    },
+    toggle(index) {
+      alert(index);
     },
   },
-
+  computed: {
+    toolbarItensFlag: function() {
+      return this.toolbarItens
+    },
+    getItens: function() {
+      const objAction = Helpers.filters.elements(this.listas, this.toolbarItens.name, 'name');
+      return objAction[0].itens;
+    }
+  },
 }

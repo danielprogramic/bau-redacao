@@ -7,10 +7,11 @@ export default {
     marcador: '',
     toolbar_obj: [{
         name: 'home_conta',
-        titulo: 'Daniel Douglas Machado',
+        titulo: 'André Fernando de Almeida',
         icon: 'person',
         marginRight: 68,
-        width: 290,
+        width: 360,
+        widthOverlaping: 350,
         habilitador: false,
       },
       {
@@ -19,6 +20,7 @@ export default {
         icon: 'more_horiz',
         marginRight: 0,
         width: 280,
+        widthOverlaping: 300,
         habilitador: false,
       },
     ]
@@ -29,8 +31,8 @@ export default {
       const objAction = Helpers.filters.elements(this.toolbar_obj, tipo, 'name');
       objAction[0].habilitador = true;
 
-      const teste = Helpers.filters.elements(this.toolbar_obj, '^home_conta$|^m$', 'name');
-      console.log(teste);
+      // const teste = Helpers.filters.elements(this.toolbar_obj, '^home_conta$|^m$', 'name');
+      // console.log(teste);
 
       this.$emit('OnToolbar', objAction);
     },
