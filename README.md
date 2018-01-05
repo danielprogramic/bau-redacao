@@ -91,7 +91,7 @@ npm test
 
 
 # 2. server
-> for front test non-persistent database.
+> api for front-end test.
 
 ## Build Setup
 ``` bash
