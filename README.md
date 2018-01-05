@@ -7,7 +7,7 @@
 1. NodeJs installed. v6.10.3
 2. Npm 3+
 
-## Folder webapp |
+## Folder webapp ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 ## Build Setup
 
@@ -51,7 +51,7 @@ npm test
 ## FRAMEWORK UI
 > Material Component Framework
 
-## Folder server |
+## Folder server ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 > for front test non-persistent database.
 
 ## Build Setup
