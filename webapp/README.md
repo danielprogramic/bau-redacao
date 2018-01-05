@@ -27,7 +27,8 @@ npm test
 ```
 
 ## App structure
-```
+
+``` bash
 ├─webapp/                                        # source folder platform DomRock
   ├─build/                                       # webpack config files
   │  ├─... 
@@ -49,15 +50,36 @@ npm test
   │  │  │  ├─...
   │  │  └─ToolBar/                               # toolbar higher 
   │  │  │  ├─...
-  │  ├─service/                                  # axios configuration for request http
+  │  ├─services/                                 # axios configuration for request http
   │  │  ├─...
-  │  ├─locale/                                   # 
+  │  ├─locales/                                  # 
   │  │  ├─...
+  │  ├─mixins/                                   # reusable functionalities for Vue components
+  │  │  ├─Helper.js
   │  ├─router/                                   # vue-router configuration define routes for system and auth-guard
   │  │  ├─...
   │  ├─store/                                    # vuex store states for system 
   │  │  ├─...
-  └─static/                                      # pure static assets (directly copied)
+  ├─static/                                      # pure static assets (directly copied)
+  ├─less/                                        # less functions mixin main
+  ├─test/
+  │  ├─unit/                                     # unit tests
+  │  │  ├─specs/                                 # test spec files
+  │  │  ├─setup.js                               # file that runs before Jest tests
+  │  │  ├─index.js                               # test build entry file
+  │  │  ├─karma.conf.js                          # test runner config file
+  │  ├─ e2e/                                     # e2e tests
+  │  │  ├─ specs/                                # test spec files
+  │  │  ├─custom-assertions/                     # custom assertions for e2e tests
+  │  │  ├─ runner.js                             # test runner script
+  │  │  ├─nightwatch.conf.js                     # test runner config file
+  ├─.babelrc                    # babel config
+  ├─.postcssrc.js               # postcss config
+  ├─.eslintrc.js                # eslint config
+  ├─.editorconfig               # editor config
+  ├─index.html                  # index.html template
+  └─package.json                # build scripts and dependencies
 ```
+
 ## FRAMEWORK UI FOR PLATAFORM
 > Material Component Framework
