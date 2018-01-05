@@ -82,4 +82,4 @@ npm test
 ```
 
 ## FRAMEWORK UI FOR PLATAFORM
-> Material Component Framework
+> https://material.io/
