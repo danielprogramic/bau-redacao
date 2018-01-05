@@ -11,7 +11,7 @@ Vue.use(Vuetify, {
   theme: {
     primary: '#0A1F30',
     secondary: '#D6E1EB',
-    homemais: '#E1EBF6',
+    toolbarTitle: '#E1EBF6',
     content: '#eeeff1',
     footer: '#eeeff1',
     accent: '#82B1FF',

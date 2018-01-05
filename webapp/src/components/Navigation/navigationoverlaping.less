@@ -3,6 +3,12 @@
         color: #0A1F30 !important;
         &-blue {
             color:#00B4F1 !important;
+            font-weight: 900 !important;
+        }
+        &-black {
+            opacity: 0.5!important;
+            font-size:9px;
+            color:#0A1F30 !important;
         }
     }
     &-activeCorporation {
@@ -14,6 +20,7 @@
         -webkit-box-shadow: -7px 19px 105px -23px rgba(0,0,0,0.2);
         -moz-box-shadow: -7px 19px 105px -23px rgba(0,0,0,0.2);
         box-shadow: -7px 19px 105px -23px rgba(0,0,0,0.2);
+        
     }
     &-divider {
         border-radius: 2px;
@@ -33,5 +40,8 @@
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
-
+.list__tile--active .list__tile__action,
+.list__tile--active .list__tile__action .icon {
+  color: inherit;
+}
 

@@ -25,10 +25,10 @@
       </v-container>
       <dr-footer :loggedIn="!$store.state.isUserLoggedIn"></dr-footer>
     </v-content>
-
-    <dr-navigation-overlaping v-if="$store.state.isUserLoggedIn" :toolbarItens="toolbarItens" @OnNavOverlaping="onNavOverlaping" >
+  
+    <dr-navigation-overlaping v-if="$store.state.isUserLoggedIn" :toolbarItens="toolbarItens" @OnNavOverlaping="onNavOverlaping">
     </dr-navigation-overlaping>
-
+  
     <v-footer v-if="$store.state.isUserLoggedIn" :fixed="false" app>
       <span class="colorblackop">&copy;  Copyright 2013 ― Todos os direitos reservados </span>
     </v-footer>
@@ -36,10 +36,10 @@
 </template>
 
 <script>
-  import Toolbar from '@/components/Shared/ToolBar/ToolBar'
-  import Navigation from '@/components/Shared/Navigation/Navigation'
-  import NavigationOverlaping from '@/components/Shared/Navigation/NavigationOverlaping'
-  import Footer from '@/components/Shared/Footer'
+  import Toolbar from '@/components/ToolBar/ToolBar'
+  import Navigation from '@/components/Navigation/Navigation'
+  import NavigationOverlaping from '@/components/Navigation/NavigationOverlaping'
+  import Footer from '@/components/Footer'
   
   export default {
     components: {
@@ -67,6 +67,6 @@
   }
 </script>
 
-<style lang="stylus">
-@import "../stylus/main"
+<style lang="less">
+@import "../less/main";
 </style>

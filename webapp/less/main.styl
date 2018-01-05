@@ -8,11 +8,18 @@
    background-size: cover;
 .mg
    display:none;
-.overlay.overlay--active 
-    margin-top:63px;
+// .overlay.overlay--active 
+//     margin-top:63px;
 .toolbaRightLbl
     color: #0A1F30;		
     font-size: 15px;
     width: 150px;
     margin-left: 20px;
-    font-weight: bold;	
+    font-weight: bold;   
+.list__tile--link:hover, .list__tile--highlighted 
+    background: #E1EBF6;
+.list--group__header, .list--group__header--active
+    background: transparent;
+.list--group__header--active .list__tile 
+    background: rgba(0,0,0,0.044);
+
