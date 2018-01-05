@@ -7,10 +7,16 @@
 1. NodeJs installed. v6.10.3
 2. Npm 3+
 
-## Folder webapp ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+## Folders
+1. webapp
+2. server
+
+
+# webapp  
+> All files that make up front-end 
+
 
 ## Build Setup
-
 ``` bash
 # install dependencies
 npm install
@@ -28,35 +34,67 @@ npm run e2e
 npm test
 ```
 ## App structure
-```
-├─webapp              # frontend source folder platform DomRock
-  ├─build             # frontend dev scripts which contains the modules webpack
-  ├─src               # frontend src
-  │  ├─assets         # image 
-  │  │  ├─css
-  │  │  ├─fonts
-  │  │  └─images
-  │  ├─components     # vue components 
-  │  ├─service        # axios configuration for request http
-  │  ├─locale         # 
-  │  ├─router         # vue-router configuration define routes for system
-  │  ├─socket         # 
-  │  ├─storage        # 
-  │  ├─store          # vuex store states for system
-  │  │  └─modules
-  │  └─view           # app pages
-  │     └─auth
-  └─static            # static folder for image static for system
-```
-## FRAMEWORK UI
-> Material Component Framework
 
-## Folder server ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+``` bash
+├─webapp/                                        # source folder platform DomRock
+  ├─build/                                       # webpack config files
+  │  ├─... 
+  ├─config/                                      
+  │  ├─ index.js                                # main project config
+  │  ├─...
+  ├─src/   
+  │  ├── main.js                                 # app entry file
+  │  ├── App.vue                                 # main app component
+  │  ├─assets/                                   #  
+  │  ├─components/                               # ui componentes 
+  │  │  ├─Shared/                                # components for all layers
+  │  │  │  ├─Diagram/                            # everything related to diagrams
+  │  │  │  │  ├─dr-tree/                         # diagram tree
+  │  │  │  │  │  ├─...
+  │  │  ├─Login/                                 # page login
+  │  │  │  ├─...
+  │  │  └─Navigation/                            # side bar fixed (Navigation) and overlaping (NavigationOverlaping)
+  │  │  │  ├─...
+  │  │  └─ToolBar/                               # toolbar higher 
+  │  │  │  ├─...
+  │  ├─services/                                 # axios configuration for request http
+  │  │  ├─...
+  │  ├─locales/                                  # 
+  │  │  ├─...
+  │  ├─mixins/                                   # reusable functionalities for Vue components
+  │  │  ├─Helper.js
+  │  ├─router/                                   # vue-router configuration define routes for system and auth-guard
+  │  │  ├─...
+  │  ├─store/                                    # vuex store states for system 
+  │  │  ├─...
+  ├─static/                                      # pure static assets (directly copied)
+  ├─less/                                        # less functions mixin main
+  ├─test/
+  │  ├─unit/                                     # unit tests
+  │  │  ├─specs/                                 # test spec files
+  │  │  ├─setup.js                               # file that runs before Jest tests
+  │  │  ├─index.js                               # test build entry file
+  │  │  ├─karma.conf.js                          # test runner config file
+  │  ├─ e2e/                                     # e2e tests
+  │  │  ├─ specs/                                # test spec files
+  │  │  ├─custom-assertions/                     # custom assertions for e2e tests
+  │  │  ├─ runner.js                             # test runner script
+  │  │  ├─nightwatch.conf.js                     # test runner config file
+  ├─.babelrc                    # babel config
+  ├─.postcssrc.js               # postcss config
+  ├─.eslintrc.js                # eslint config
+  ├─.editorconfig               # editor config
+  ├─index.html                  # index.html template
+  └─package.json                # build scripts and dependencies
+```
+
+
+
+# server
 > for front test non-persistent database.
 
 ## Build Setup
 
-``` bash
 # install dependencies
 npm install
 # serve with nodemon reload server

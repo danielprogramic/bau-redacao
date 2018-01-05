@@ -28,24 +28,36 @@ npm test
 
 ## App structure
 ```
-├─webapp              # frontend source folder platform DomRock
-  ├─build             # frontend dev scripts which contains the modules webpack
-  ├─src               # frontend src
-  │  ├─assets         # image 
-  │  │  ├─css
-  │  │  ├─fonts
-  │  │  └─images
-  │  ├─components     # vue components 
-  │  ├─service        # axios configuration for request http
-  │  ├─locale         # 
-  │  ├─router         # vue-router configuration define routes for system
-  │  ├─socket         # 
-  │  ├─storage        # 
-  │  ├─store          # vuex store states for system
-  │  │  └─modules
-  │  └─view           # app pages
-  │     └─auth
-  └─static            # static folder for image static for system
+├─webapp/                                        # source folder platform DomRock
+  ├─build/                                       # webpack config files
+  │  ├─... 
+  ├─config/                                      
+  │  ├─ index.js                                # main project config
+  │  ├─...
+  ├─src/   
+  │  ├── main.js                                 # app entry file
+  │  ├── App.vue                                 # main app component
+  │  ├─assets/                                   #  
+  │  ├─components/                               # ui componentes 
+  │  │  ├─Shared/                                # components for all layers
+  │  │  │  ├─Diagram/                            # everything related to diagrams
+  │  │  │  │  ├─dr-tree/                         # diagram tree
+  │  │  │  │  │  ├─...
+  │  │  ├─Login/                                 # page login
+  │  │  │  ├─...
+  │  │  └─Navigation/                            # side bar fixed (Navigation) and overlaping (NavigationOverlaping)
+  │  │  │  ├─...
+  │  │  └─ToolBar/                               # toolbar higher 
+  │  │  │  ├─...
+  │  ├─service/                                  # axios configuration for request http
+  │  │  ├─...
+  │  ├─locale/                                   # 
+  │  │  ├─...
+  │  ├─router/                                   # vue-router configuration define routes for system and auth-guard
+  │  │  ├─...
+  │  ├─store/                                    # vuex store states for system 
+  │  │  ├─...
+  └─static/                                      # pure static assets (directly copied)
 ```
 ## FRAMEWORK UI FOR PLATAFORM
 > Material Component Framework
