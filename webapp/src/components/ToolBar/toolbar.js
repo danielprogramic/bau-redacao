@@ -5,6 +5,7 @@ export default {
   ],
   data: () => ({
     marcador: '',
+    scrollPosition: 200,
     toolbar_obj: [{
         name: 'home_conta',
         titulo: 'André Fernando de Almeida',
@@ -38,6 +39,13 @@ export default {
 
       this.$emit('OnToolbar', objAction);
     },
+    handleScroll(e) {
+      var currentScrollPosition = e.srcElement.scrollTop;
+      if (currentScrollPosition > this.scrollPosition) {
+        console.log("Scrolling down");
+      }
+      this.scrollPosition = currentScrollPosition;
+    }
   },
   watch: {
     rightDrawer: function(val) {

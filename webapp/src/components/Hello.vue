@@ -1,8 +1,8 @@
 <template>
   <div class="hello">
-    <v-layout column align-center>
+    <v-layout style="overflow-x: auto;-webkit-overflow-scrolling: touch;white-space: nowrap;" column >
       </br>
-      <v-flex xs5 offset-xs1>
+      <v-flex  xs5 offset-xs1>
 
         <!-- <h1 class="headline mb-3">{{ msg }}</h1>
         <v-btn large round color="info" dark>DASHBOARD</v-btn>
@@ -90,14 +90,30 @@
                 Que jamais tu navegues sozinho'`,
         data: {
           id: 0,
-          label:  `<b>ITEM-0</b>`,
+          label:  `<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0</b></div>`,
           children: [
                {
                 id: 5,
-                label: 'ITEM-1-1',
+                label: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-1</b></div>',
+                children: [
+                    {
+                      id: 5,
+                      label: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-1-1</b></div>',
+                      children: [
+                    {
+                      id: 5,
+                      label: '<div style="height:231px;width:120px;"><b style="font-size:25px;">ITEM-0-1-1-1</b></div>',
+                    }, {
+                      id: 6,
+                      label: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-1-1-2</b></div>'
+                  }]
+                    }, {
+                      id: 6,
+                      label: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-1-2</b></div>'
+                  }]
                }, {
                 id: 6,
-                label: 'ITEM-1-2'
+                label: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-2</b></div>'
             }]
         },
         horizontal: true,
@@ -144,25 +160,7 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-  h1,
-  h2 {
-    font-weight: normal;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-  
-  a {
-    color: #42b983;
-  }
+<style >
 .bg-white {
   background-color: white;
 }

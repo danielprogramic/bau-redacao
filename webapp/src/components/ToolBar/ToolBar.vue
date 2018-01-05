@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div >
     <nav>
-      <v-toolbar dark class="primary hidden-sm-and-down" :clipped-left="true" app>
+      <v-toolbar  dark class="primary hidden-sm-and-down" :clipped-left="true" app>
         <!-- <v-toolbar-side-icon style="font-size:22px;" @click.stop="drawerFlag()"></v-toolbar-side-icon> -->
         <v-list-tile-action>
           <v-container class="text-xs-center">
