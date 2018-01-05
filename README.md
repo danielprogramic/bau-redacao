@@ -12,7 +12,7 @@
 2. server
 
 
-# webapp  
+# 1. webapp  
 > All files that make up front-end 
 
 
@@ -90,16 +90,16 @@ npm test
 
 
 
-# server
+# 2. server
 > for front test non-persistent database.
 
 ## Build Setup
-
+``` bash
 # install dependencies
 npm install
-# serve with nodemon reload server
+# serve with nodemon reload server localhost:8081
 npm start
-# test api
+```
 
 
 
