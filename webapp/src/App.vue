@@ -6,7 +6,10 @@
   
     <dr-toolbar v-if="$store.state.isUserLoggedIn" :rightDrawer="rightDrawer" @OnToolbar="onToolbar">
     </dr-toolbar>
-  
+
+    <dr-toolbar-sub v-if="$store.state.isUserLoggedIn">
+    </dr-toolbar-sub>
+    
     <v-content>
       <div v-if="!$store.state.isUserLoggedIn" class="bg">
         <v-fade-transition mode="out-in">
@@ -37,6 +40,7 @@
 
 <script>
   import Toolbar from '@/components/ToolBar/ToolBar'
+  import ToolBarSub from '@/components/ToolBar/ToolBarSub'
   import Navigation from '@/components/Navigation/Navigation'
   import NavigationOverlaping from '@/components/Navigation/NavigationOverlaping'
   import Footer from '@/components/Footer'
@@ -44,6 +48,7 @@
   export default {
     components: {
       'dr-toolbar': Toolbar,
+      'dr-toolbar-sub': ToolBarSub,
       'dr-navigation': Navigation,
       'dr-navigation-overlaping': NavigationOverlaping,
       'dr-footer': Footer,

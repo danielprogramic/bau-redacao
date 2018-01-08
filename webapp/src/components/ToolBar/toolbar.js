@@ -1,5 +1,9 @@
 import Helpers from '@/mixins/Helper'
+import VueSticky from 'vue-sticky';
 export default {
+  directives: {
+    'sticky': VueSticky,
+  },
   props: [
     'rightDrawer',
   ],
@@ -26,7 +30,11 @@ export default {
         widthOverlaping: 300,
         habilitador: false,
       },
-    ]
+    ],
+    stickyConfig: {
+      zIndex: 6,
+      stickyTop: 0
+    },
   }),
   methods: {
     actionDrawer(tipo) {
@@ -38,14 +46,12 @@ export default {
       // console.log(teste);
 
       this.$emit('OnToolbar', objAction);
-    },
-    handleScroll(e) {
-      var currentScrollPosition = e.srcElement.scrollTop;
-      if (currentScrollPosition > this.scrollPosition) {
-        console.log("Scrolling down");
-      }
-      this.scrollPosition = currentScrollPosition;
     }
+  },
+  mounted() {
+    setTimeout(() => {
+      //this.stickyConfig.stickyTop = 300
+    }, 5000)
   },
   watch: {
     rightDrawer: function(val) {

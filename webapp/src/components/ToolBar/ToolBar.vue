@@ -1,7 +1,7 @@
 <template>
-  <div >
+  <div style=" transition: all ease-in-out .9s;" v-sticky="stickyConfig">
     <nav>
-      <v-toolbar  dark class="primary hidden-sm-and-down" :clipped-left="true" app>
+      <v-toolbar dark class="primary hidden-sm-and-down" :clipped-left="true" app>
         <!-- <v-toolbar-side-icon style="font-size:22px;" @click.stop="drawerFlag()"></v-toolbar-side-icon> -->
         <v-list-tile-action>
           <v-container class="text-xs-center">
@@ -97,8 +97,8 @@
         <span style="float:left;" class="colorblue">TITULO DO CONJUNTO DE ANÁLISES</span>
         <span style="float:right;" class="colorblackop">CNPJ:03.649.560/0001-60</span>
       </div>
-  
-      <v-toolbar class="neutro hidden-sm-and-down" v-if="$store.state.isUserLoggedIn" :clipped-left="true" app>
+    </nav>
+      <!-- <v-toolbar class="neutro hidden-sm-and-down" v-if="$store.state.isUserLoggedIn" :clipped-left="true" app>
         <v-list-tile-action>
           <v-container class="text-xs-center">
             <v-layout row child-flex justify-center align-center wrap>
@@ -137,8 +137,7 @@
             </v-layout>
           </v-container>
         </v-list-tile-action>
-      </v-toolbar>
-    </nav>
+      </v-toolbar> -->
   </div>
 </template>
 

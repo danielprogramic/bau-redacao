@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <v-layout style="overflow-x: auto;-webkit-overflow-scrolling: touch;white-space: nowrap;" column >
+    <v-layout style="overflow-x: auto; height:615px;" column >
       </br>
       <v-flex  xs5 offset-xs1>
 
@@ -84,36 +84,32 @@
         date: null,
         menu: false,
         modal: false,
-        msg: `Se EDDEDED marcares ao largo um lampejo
-                De um farol a mostrar o caminho,
-                Saberá ser o nosso desejo
-                Que jamais tu navegues sozinho'`,
         data: {
           id: 0,
-          label:  `<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0</b></div>`,
+          template:  `<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0</b></div>`,
           children: [
                {
                 id: 5,
-                label: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-1</b></div>',
+                template: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-1</b></div>',
                 children: [
                     {
                       id: 5,
-                      label: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-1-1</b></div>',
+                      template: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-1-1</b></div>',
                       children: [
                     {
                       id: 5,
-                      label: '<div style="height:231px;width:120px;"><b style="font-size:25px;">ITEM-0-1-1-1</b></div>',
+                      template: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-1-1-1</b></div>',
                     }, {
                       id: 6,
-                      label: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-1-1-2</b></div>'
+                      template: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-1-1-2</b></div>'
                   }]
                     }, {
                       id: 6,
-                      label: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-1-2</b></div>'
+                      template: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-1-2</b></div>'
                   }]
                }, {
                 id: 6,
-                label: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-2</b></div>'
+                template: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-2</b></div>'
             }]
         },
         horizontal: true,
@@ -125,7 +121,7 @@
       renderContent (h, data) {
         return h('div', {
           domProps: {
-            innerHTML: data.label
+            innerHTML: data.template
           }
         })
       },
@@ -141,7 +137,7 @@
         }
       },
       onNodeClick (e, data) {
-        alert(data.label)
+        alert(data.template)
       },
       collapse (list) {
         list.forEach(child => {
@@ -163,6 +159,7 @@
 <style >
 .bg-white {
   background-color: white;
+
 }
 .bg-orange {
   background-color: orange;
