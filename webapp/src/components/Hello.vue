@@ -64,6 +64,36 @@
           @on-node-click="onNodeClick"
         >
         </dr-tree>
+                <dr-tree
+          :data="data"
+          :horizontal="horizontal"
+          :collapsable="collapsable"
+          :label-class-name="labelClassName"
+          :render-content="renderContent"
+          @on-expand="onExpand"
+          @on-node-click="onNodeClick"
+        >
+        </dr-tree>
+                <dr-tree
+          :data="data"
+          :horizontal="horizontal"
+          :collapsable="collapsable"
+          :label-class-name="labelClassName"
+          :render-content="renderContent"
+          @on-expand="onExpand"
+          @on-node-click="onNodeClick"
+        >
+        </dr-tree>
+                <dr-tree
+          :data="data"
+          :horizontal="horizontal"
+          :collapsable="collapsable"
+          :label-class-name="labelClassName"
+          :render-content="renderContent"
+          @on-expand="onExpand"
+          @on-node-click="onNodeClick"
+        >
+        </dr-tree>
       </div>
 
 
@@ -91,22 +121,7 @@
                {
                 id: 5,
                 template: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-1</b></div>',
-                children: [
-                    {
-                      id: 5,
-                      template: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-1-1</b></div>',
-                      children: [
-                    {
-                      id: 5,
-                      template: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-1-1-1</b></div>',
-                    }, {
-                      id: 6,
-                      template: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-1-1-2</b></div>'
-                  }]
-                    }, {
-                      id: 6,
-                      template: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-1-2</b></div>'
-                  }]
+
                }, {
                 id: 6,
                 template: '<div style="height:231px;width:320px;"><b style="font-size:25px;">ITEM-0-2</b></div>'

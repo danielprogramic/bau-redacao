@@ -14,12 +14,16 @@ export default {
         },
         {
           name: 'home_conta',
-          itens: [
-            { icon: '', perfilAtv: 'PERFIL ATIVO', cnpj: 'CNPJ:01.456.298/0001-15' , empresa: 'Qualicorp corretora de Seguros S.A', collapse: [
-              { action: 'restore_page', title: 'Detalhe 1' },
-              { action: 'restore_page', title: 'Detalhe 2' },
-              { action: 'restore_page', title: 'Detalhe 3' }
-            ]
+          itens: [{
+              icon: '',
+              perfilAtv: 'PERFIL ATIVO',
+              cnpj: 'CNPJ:01.456.298/0001-15',
+              empresa: 'Qualicorp corretora de Seguros S.A',
+              collapse: [
+                { action: 'restore_page', title: 'Detalhe 1' },
+                { action: 'restore_page', title: 'Detalhe 2' },
+                { action: 'restore_page', title: 'Detalhe 3' }
+              ]
             },
             { icon: 'account_box', title: 'Minha conta' },
             { icon: 'supervisor_account', title: 'Usuários' },
@@ -54,4 +58,7 @@ export default {
       return objAction[0].itens;
     }
   },
+  created() {
+    console.log('CRIOU COMPONENTE NAVIGATION OVERLAPING')
+  }
 }
