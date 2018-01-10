@@ -18,9 +18,10 @@
       </div>
       <v-container v-if="$store.state.isUserLoggedIn" fluid>
         <v-layout justify-left>
-          <v-btn icon @click.stop="drawer = !drawer">
+          <!-- <v-btn icon @click.stop="drawer = !drawer">
             <v-icon style="font-size:22px;color:#8f8f9b">sort</v-icon>
-          </v-btn>
+          </v-btn> -->
+             <!-- {{toolbarItens}}  -->
         </v-layout>
         <v-fade-transition mode="out-in">
           <router-view></router-view>
@@ -29,7 +30,7 @@
       <dr-footer :loggedIn="!$store.state.isUserLoggedIn"></dr-footer>
     </v-content>
   
-    <dr-navigation-overlaping v-if="$store.state.isUserLoggedIn" :toolbarItens="toolbarItens" @OnNavOverlaping="onNavOverlaping">
+    <dr-navigation-overlaping v-if="$store.state.isUserLoggedIn" :toolbarItens="toolbarItens">
     </dr-navigation-overlaping>
   
     <v-footer v-if="$store.state.isUserLoggedIn" :fixed="false" app>
@@ -64,10 +65,8 @@
       onToolbar(value) {
         this.rightDrawer = true;
         this.toolbarItens = value[0];
+        console.log(this.toolbarItens);
       },
-      onNavOverlaping(value) {
-        this.rightDrawer = false;
-      }
     }
   }
 </script>

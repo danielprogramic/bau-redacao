@@ -35,10 +35,9 @@ export default {
   },
   methods: {
     close() {
-      this.$emit('OnNavOverlaping', false);
+      this.toolbarItensFlag.habilitador = false;
     },
     onLogout() {
-      this.$emit('OnNavOverlaping', false);
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)
       this.$router.push({
@@ -59,6 +58,7 @@ export default {
     }
   },
   created() {
+    this.close();
     console.log('CRIOU COMPONENTE NAVIGATION OVERLAPING')
   }
 }

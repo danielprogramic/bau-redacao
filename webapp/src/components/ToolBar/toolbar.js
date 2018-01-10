@@ -38,6 +38,7 @@ export default {
   }),
   methods: {
     actionDrawer(tipo) {
+
       this.marcador = tipo;
       const objAction = Helpers.filters.elements(this.toolbar_obj, tipo, 'name');
       objAction[0].habilitador = true;
