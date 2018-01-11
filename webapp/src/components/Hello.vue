@@ -1,39 +1,23 @@
 <template>
   <div class="hello">
-
-   <v-layout right >
-      <v-flex >
-      <v-menu 
-        lazy
-        :close-on-content-click="false"
-        v-model="menu"
-        transition="scale-transition"
-        offset-y
-        full-width
-        :nudge-right="40"
-        max-width="290px"
-        min-width="290px"
-      >
-        <input class="datepicker"
-          slot="activator"
-          label="Data Inicial"
-          v-model="dateFormatted"
-          prepend-icon="event"
-          @blur="date = parseDate(dateFormatted)"
-        ></input>
-        <v-date-picker  color="blue lighten-1" locale="pt-br" v-model="date" @input="dateFormatted = formatDate($event)" scrollable actions>
-          <template slot-scope="{ save, cancel }">
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn flat color="primary" @click="cancel">Cancel</v-btn>
-              <v-btn flat color="primary" @click="save">OK</v-btn>
-            </v-card-actions>
-          </template>
+  
+    <!-- <v-layout right>
+      <v-flex>
+        <v-menu lazy :close-on-content-click="false" v-model="menu" transition="scale-transition" offset-y full-width :nudge-right="40" max-width="290px" min-width="290px">
+          <input class="datepicker" slot="activator" label="Data Inicial" v-model="dateFormatted" prepend-icon="event" @blur="date = parseDate(dateFormatted)"></input>
+          <v-date-picker color="blue lighten-1" locale="pt-br" v-model="date" @input="dateFormatted = formatDate($event)" :allowed-dates="allowedDates" scrollable actions>
+            <template slot-scope="{ save, cancel }">
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn flat color="primary" @click="cancel">Cancel</v-btn>
+                      <v-btn flat color="primary" @click="save">OK</v-btn>
+                    </v-card-actions>
+</template>
         </v-date-picker>
       </v-menu>
       <p>Resultado: <strong>{{ date }}</strong></p>
       </v-flex>
-   </v-layout> 
+   </v-layout>  -->
 
 
 
@@ -49,13 +33,13 @@
         <v-dialog persistent v-model="modal" lazy full-width width="290px">
           <v-text-field slot="activator" label="Picker in dialog" v-model="date" prepend-icon="event" readonly></v-text-field>
           <v-date-picker v-model="date" scrollable actions>
-            <template slot-scope="{ save, cancel }">
-                <v-card-actions>
-                  <v-spacer></v-spacer>
-                  <v-btn flat color="primary" @click="cancel">Cancel</v-btn>
-                  <v-btn flat color="primary" @click="save">OK</v-btn>
-                </v-card-actions>
-        </template>
+<template slot-scope="{ save, cancel }">
+  <v-card-actions>
+    <v-spacer></v-spacer>
+    <v-btn flat color="primary" @click="cancel">Cancel</v-btn>
+    <v-btn flat color="primary" @click="save">OK</v-btn>
+  </v-card-actions>
+</template>
         </v-date-picker>
       </v-dialog> -->
           <!-- <form class="form-horizontal row">
@@ -122,153 +106,239 @@
         dateFormatted: null,
         menu: false,
         modal: false,
+        allowedDates: null,
         data: {
           id: 0,
-          template:  `<div style="width:320px;"> 
-
-                        <div style="padding:10px;">
-                          <b style="font-size:15px;">Fechamento Novembro/16</b>
-                        </div> 
-
-                        <div style="background-color:#fff;height:209px;border-radius: 6px;" >
-
-                          <div style="padding:20px;">
-                            <div style="float:left;">Previsão </div> 
-                            <div style="float:right;"><b>R$ 100,00</b></div>
-                          </div>
-
-                          <div style="padding:20px;">
-                            <div style="float:left;">Efetivo </div> 
-                            <div style="float:right;"><b>R$ 150,00</b></div>
-                          </div>
-
-                          <div style="padding:20px;">
-                            <div style="float:left;">Variações </div> 
-                            <div style="float:right;"><b>R$ 100,00</b></div>
-                          </div> 
-                          
-                          <div style="padding:20px;">
-                            <div style="height:1px;background-color: #E1EBF6;width:100%;" >  </div>
-                            </br>
-                            <div style="float:left;">
-                            <b>Resumo</b>
-                            &#9658;
-                            </div> 
-                            <div style="float:right;">
-                            <b>Detalhes</b>
-                            &#9658;
-                            </div>
-                          </div> 
-
-                        </div>
-                        
-                      </div>`,
-          children: [
-               {
-                id: 5,
-                template: `<div style="height:100%;width:320px;"> 
-
-                        <div style="padding:10px;">
-                          <b style="font-size:15px;">Pendências de retorno</b>
-                        </div> 
-
-                        <div style="background-color:#fff;border-radius: 6px;" >
-
-                          <div style="padding:20px;">
-                            <div style="float:left;">QTD Guias </div> 
-                            <div @click="alert('dede')" style="float:right;"><b>R$ 100,00</b></div>
-                          </div>
-
-                          <div style="padding:20px;">
-                            <div style="float:left;">SP/SADT </div> 
-                            <div style="float:right;"><b>R$ 150,00</b></div>
-                          </div>
-                          <div style="padding:20px;">
-                            <div style="float:left;">Internação</div> 
-                            <div style="float:right;"><b>R$ 150,00</b></div>
-                          </div>
-                          </br>
-                          <div style="padding:20px;">
-                            <div style="float:left;"><b>Valor total</b> </div> 
-                            <div style="float:right;"><b style="color:#00B4F1" >R$ 5.398.192,00</b></div>
-                          </div> 
-                          
-                          <div style="padding:20px;">
-                            <div style="height:1px;background-color: #E1EBF6;width:100%;" >  </div>
-                            </br>
-                            <div style="float:right;">
-                            <b>Ver mais</b>
-                            &#9658;
-                            </div>
-                            </br>
-                          </div> 
-                        </div>
-                          
-                      </div>`,
-
-               }, {
-                id: 6,
-                template: `<div style="width:320px;"> 
-
-                        <div style="padding:10px;">
-                          <b style="font-size:15px;">Retorno Confirmado</b>
-                        </div> 
-
-                        <div style="background-color:#fff;height:209px;border-radius: 6px;" >
-
-                          <div style="padding:20px;">
-                            <div style="float:left;">Previsão </div> 
-                            <div style="float:right;"><b>R$ 100,00</b></div>
-                          </div>
-
-                          <div style="padding:20px;">
-                            <div style="float:left;">Efetivo </div> 
-                            <div style="float:right;"><b>R$ 150,00</b></div>
-                          </div>
-
-                          <div style="padding:20px;">
-                            <div style="float:left;">Variações </div> 
-                            <div style="float:right;"><b>R$ 100,00</b></div>
-                          </div> 
-                          
-                          <div style="padding:20px;">
-                            <div style="height:1px;background-color: #E1EBF6;width:100%;" >  </div>
-                            </br>
-                            <div style="float:left;">
-                            <b>Resumo</b>
-                            &#9658;
-                            </div> 
-                            <div style="float:right;">
-                            <b>Detalhes</b>
-                            &#9658;
-                            </div>
-                          </div> 
-
-                        </div>
-                        
-                      </div>`
-            }]
+          caixa: {
+            titulo: 'Fechamento Novembro/16',
+            itens: [{
+                label: 'Previsão',
+                value: 100,
+              },
+              {
+                label: 'Efetivo',
+                value: 100,
+              },
+  
+            ],
+          },
+          template: `<div style="width:320px;"> 
+        
+                                <div style="padding:10px;">
+                                  <b style="font-size:15px;">Fechamento Novembro/16</b>
+                                </div> 
+        
+                                <div style="background-color:#fff;height:209px;border-radius: 6px;" >
+        
+                                  <div style="padding:20px;">
+                                    <div style="float:left;">Previsão </div> 
+                                    <div style="float:right;"><b>R$ 100,00</b></div>
+                                  </div>
+        
+                                  <div style="padding:20px;">
+                                    <div style="float:left;">Efetivo </div> 
+                                    <div style="float:right;"><b>R$ 150,00</b></div>
+                                  </div>
+        
+                                  <div style="padding:20px;">
+                                    <div style="float:left;">Variações </div> 
+                                    <div style="float:right;"><b>R$ 100,00</b></div>
+                                  </div> 
+                                  
+                                  <div style="padding:20px;">
+                                    <div style="height:1px;background-color: #E1EBF6;width:100%;" >  </div>
+                                    </br>
+                                    <div style="float:left;">
+                                    <b>Resumo</b>
+                                    &#9658;
+                                    </div> 
+                                    <div style="float:right;">
+                                    <b>Detalhes</b>
+                                    &#9658;
+                                    </div>
+                                  </div> 
+        
+                                </div>
+                                
+                              </div>`,
+          children: [{
+            id: 5,
+            caixa: {
+              titulo: 'Pendências de retorno',
+              itens: [{
+                  label: 'Previsão',
+                  value: 100,
+                },
+                {
+                  label: 'Efetivo',
+                  value: 100,
+                },
+  
+              ],
+            },
+            template: `<div style="height:100%;width:320px;"> 
+        
+                                <div style="padding:10px;">
+                                  <b style="font-size:15px;">Pendências de retorno</b>
+                                </div> 
+        
+                                <div style="background-color:#fff;border-radius: 6px;" >
+        
+                                  <div style="padding:20px;">
+                                    <div style="float:left;">QTD Guias </div> 
+                                    <div @click="alert('dede')" style="float:right;"><b>R$ 100,00</b></div>
+                                  </div>
+        
+                                  <div style="padding:20px;">
+                                    <div style="float:left;">SP/SADT </div> 
+                                    <div style="float:right;"><b>R$ 150,00</b></div>
+                                  </div>
+                                  <div style="padding:20px;">
+                                    <div style="float:left;">Internação</div> 
+                                    <div style="float:right;"><b>R$ 150,00</b></div>
+                                  </div>
+                                  </br>
+                                  <div style="padding:20px;">
+                                    <div style="float:left;"><b>Valor total</b> </div> 
+                                    <div style="float:right;"><b style="color:#00B4F1" >R$ 5.398.192,00</b></div>
+                                  </div> 
+                                  
+                                  <div style="padding:20px;">
+                                    <div style="height:1px;background-color: #E1EBF6;width:100%;" >  </div>
+                                    </br>
+                                    <div style="float:right;">
+                                    <b>Ver mais</b>
+                                    &#9658;
+                                    </div>
+                                    </br>
+                                  </div> 
+                                </div>
+                                  
+                              </div>`,
+  
+          }, {
+            id: 6,
+            caixa: {
+              titulo: 'Retorno Confirmado',
+              itens: [{
+                  label: 'Previsão',
+                  value: 100,
+                },
+                {
+                  label: 'Efetivo',
+                  value: 100,
+                },
+                {
+                  label: 'Previsão',
+                  value: 100,
+                },
+                {
+                  label: 'Efetivo',
+                  value: 100,
+                },
+                {
+                  label: 'Previsão',
+                  value: 100,
+                },
+                {
+                  label: 'Efetivo',
+                  value: 500,
+                },
+              ],
+            },
+            template: `<div style="width:320px;"> 
+        
+                                <div style="padding:10px;">
+                                  <b style="font-size:15px;">Retorno Confirmado</b>
+                                </div> 
+        
+                                <div style="background-color:#fff;height:209px;border-radius: 6px;" >
+        
+                                  <div style="padding:20px;">
+                                    <div style="float:left;">Previsão </div> 
+                                    <div style="float:right;"><b>R$ 100,00</b></div>
+                                  </div>
+        
+                                  <div style="padding:20px;">
+                                    <div style="float:left;">Efetivo </div> 
+                                    <div style="float:right;"><b>R$ 150,00</b></div>
+                                  </div>
+        
+                                  <div style="padding:20px;">
+                                    <div style="float:left;">Variações </div> 
+                                    <div style="float:right;"><b>R$ 100,00</b></div>
+                                  </div> 
+                                  
+                                  <div style="padding:20px;">
+                                    <div style="height:1px;background-color: #E1EBF6;width:100%;" >  </div>
+                                    </br>
+                                    <div style="float:left;">
+                                    <b>Resumo</b>
+                                    &#9658;
+                                    </div> 
+                                    <div style="float:right;">
+                                    <b>Detalhes</b>
+                                    &#9658;
+                                    </div>
+                                  </div> 
+        
+                                </div>
+                                
+                              </div>`
+          }]
         },
         horizontal: true,
         collapsable: true,
+        lastFiveDays: {
+          min: null,
+          max: null
+        },
         valor: 400,
         labelClassName: 'bg-white'
-       }
+      }
     },
     methods: {
-      renderContent (h, data) {
-        return h('div', {
-          'class': {
-            foo: true,
-            bar: false
-          },
-          domProps: {
-            innerHTML: data.template
-          },
-        },  
-        );
+      // renderContent(h, data) {
+      //   return h('div', {
+      //     domProps: {
+      //       innerHTML: data.template
+      //     },
+      //   }, );
+      // },
+      renderContent(h, data) {
+        //RENDERIZANDO CAIXA DE DIVERGENCIA
+        return [h('div', {
+            'class': {
+              'divergencia': true
+            },
+            domProps: {
+              innerHTML: data.caixa.titulo
+            },
+          }),
+          h('div', {
+            'class': {
+              'divergencia-box': true
+            }
+          }, [
+            h('ul', {
+                'class': {
+                  'divergencia-ul': true
+                },
+              },
+              data.caixa.itens.map(conteudo => h('li', conteudo.label))
+            ),
+            h('ul', {
+                'class': {
+                  'divergencia-ul-val': true
+                },
+              },
+              data.caixa.itens.map(conteudo => h('li', conteudo.value))
+            ),
+          ], ),
+        ];
+        //RENDERIZANDO CAIXA DE DIVERGENCIA
       },
-      onExpand (data) {
+      onExpand(data) {
         if ('expand' in data) {
           data.expand = !data.expand
           if (!data.expand && data.children) {
@@ -278,102 +348,121 @@
           this.$set(data, 'expand', true)
         }
       },
-      onNodeClick (e, data) {
+      onNodeClick(e, data) {
         //console.log(data)
       },
-      collapse (list) {
+      collapse(list) {
         list.forEach(child => {
           if (child.expand) {
             child.expand = false
           }
-
+  
           child.children && this.collapse(child.children)
         })
       },
-      formatDate (date) {
+      formatDate(date) {
         if (!date) {
           return null
         }
-
+  
         const [year, month, day] = date.split('-')
         return `${month}/${day}/${year}`
       },
-      parseDate (date) {
+      parseDate(date) {
         if (!date) {
           return null
         }
-
+  
         const [month, day, year] = date.split('/')
         return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`
       }
     },
+    mounted() {
+      const date = new Date()
+      this.randomDays = [...Array(10)].map(() => {
+        const day = Math.floor(Math.random() * 30)
+        const d = new Date()
+        d.setDate(day)
+        return d.toISOString().substr(0, 10)
+      })
+  
+      const d = new Date()
+      d.setDate(date.getDate() - 5)
+      this.lastFiveDays.min = d.toISOString().substr(0, 10)
+      this.lastFiveDays.max = date.toISOString().substr(0, 10)
+      this.allowedDates = this.lastFiveDays
+  
+    },
     created() {
-      this.data.template = `<div style="width:320px;"> 
-                        <div style="padding:10px;">
-                          <b style="font-size:15px;">Fechamento Novembro/16</b>
-                        </div> 
-                        <div style="background-color:#fff;height:209px;border-radius: 6px;" >
-                          <div style="padding:20px;">
-                            <div style="float:left;">Previsão </div> 
-                            <div style="float:right;"><b>${this.valor}</b></div>
-                          </div>
-                          <div style="padding:20px;">
-                            <div style="float:left;">Efetivo </div> 
-                            <div style="float:right;"><b>R$ 150,00</b></div>
-                          </div>
-
-                          <div style="padding:20px;">
-                            <div style="float:left;">Variações </div> 
-                            <div style="float:right;"><b>R$ 100,00</b></div>
-                          </div>                
-                          <div style="padding:20px;">
-                            <div style="height:1px;background-color: #E1EBF6;width:100%;" >  </div>
-                            </br>
-                            <div style="float:left;">
-                            <b>Resumo</b>
-                            &#9658;
-                            </div> 
-                            <div style="float:right;">
-                            <b>Detalhes</b>
-                            &#9658;
-                            </div>
-                          </div> 
-                        </div>    
-                      </div>`
     }
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style >
-.datepicker{
-    border-radius: 4px;	
+<style>
+  .divergencia {
+    width: 320px;
+    font-weight: bold;
+    padding: 15px;
+    text-align: left;
+  }
+  
+  .divergencia-box {
+    background-color: #fff;
+    height: 100%;
+    border-radius: 6px;
+  }
+  
+  .divergencia-ul {
+    width: 50%;
+    text-align: left;
+    padding: 20px;
+    list-style-type: none;
+    display: inline-block;
+  }
+  
+  .divergencia-ul-val {
+    width: 50%;
+    text-align: right;
+    padding: 20px;
+    list-style-type: none;
+    display: inline-block;
+  }
+  
+  .datepicker {
+    border-radius: 4px;
     height: 40px;
     text-align: center;
     color: #0A1F30;
-    background-color: #FFFFFF;	
-    box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.2);
-}
-.bg-white {
-  	background-color: #D6E1EB;
-
-}
-.bg-orange {
-  background-color: #00B4F1;
-}
-.bg-gold {
-  background-color: gold;
-}
-.bg-gray {
-  background-color: gray;
-}
-.bg-lightpink {
-  background-color: lightpink;
-}
-.bg-chocolate {
-  background-color: chocolate;
-}
-.bg-tomato {
-  background-color: tomato;
-}
+    background-color: #FFFFFF;
+    box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .bg-white {
+    background-color: #D6E1EB;
+  }
+  
+  .bg-orange {
+    background-color: #00B4F1;
+  }
+  
+  .bg-gold {
+    background-color: gold;
+  }
+  
+  .bg-gray {
+    background-color: gray;
+  }
+  
+  .bg-lightpink {
+    background-color: lightpink;
+  }
+  
+  .bg-chocolate {
+    background-color: chocolate;
+  }
+  
+  .bg-tomato {
+    background-color: tomato;
+  }
 </style>

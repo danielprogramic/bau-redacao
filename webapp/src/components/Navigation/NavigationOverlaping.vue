@@ -14,7 +14,7 @@
        <v-list>
           <template v-for="(item, index) in getItens">
           <!-- LISTA COM COLLAPSE -->
-          <v-list two-line>
+          <v-list  two-line>
           <v-list-group  v-if="item.collapse"  v-bind:key="item.title" v-bind:class="{'navigation_overlaping-activeCorporation': item.collapse }" >
             <v-list-tile   slot="item" @click="">
               <v-list-tile-content>
