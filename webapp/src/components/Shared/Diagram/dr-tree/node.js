@@ -57,7 +57,7 @@ export const renderLabel = (h, data, context) => {
   const clickHandler = context.listeners['on-node-click']
 
   const childNodes = []
-  let vnode = renderContent(h, data)
+  let vnode = renderContent(h, data, context)
   vnode && childNodes.push(vnode)
 
 
