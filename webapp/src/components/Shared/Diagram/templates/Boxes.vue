@@ -1,19 +1,12 @@
 <template>
   <div class="boxes">
-      <div class="text-center">
-        <dr-tree
-          :data="data"
-          :horizontal="horizontal"
-          :collapsable="collapsable"
-          :label-class-name="labelClassName"
-          :render-content="renderContent"
-          @on-expand="onExpand"
-          @on-node-click="onNodeClick"
-        >
-        </dr-tree>   
-      </div>
+    <div class="text-center">
+      <dr-tree :data="data" :horizontal="horizontal" :collapsable="collapsable" :label-class-name="labelClassName" :render-content="renderContent" @on-expand="onExpand" @on-node-click="onNodeClick">
+      </dr-tree>
+    </div>
   </div>
 </template>
+
 <script>
   import DrTree from '../dr-tree/dr-tree'
   export default {
@@ -34,7 +27,6 @@
     methods: {
       renderContent(h, data, context) {
         const self = this;
-        //RENDERIZANDO CAIXA DE DIVERGENCIA
         return [h('div', {
             'class': {
               'divergencia': true
@@ -53,7 +45,7 @@
                   'divergencia-ul': true
                 },
               },
-              data.caixa.itens.map((conteudo,index)=> h('li', {
+              data.caixa.itens.map((conteudo, index) => h('li', {
                 'class': {
                   'divergencia-ul-actions': conteudo.actions
                 },
@@ -63,21 +55,10 @@
                 on: {
                   click: function(event) {
                     if (conteudo.actions) {
-                      // alert(conteudo.actions[0].label)
-                      //conteudo.actions[0].trigger(data.caixa.itens);
-                      if(conteudo.actions[0].trigger){
-
-                          //context.listeners['on-node-click'](data.caixa.itens)
-                          //console.log(self)
-                          self.$emit('OnBabaca', data.caixa.itens, index);
-                          //context.listeners.$emit('OnToolbar', data.caixa.itens);
-                         // context.listeners['OnBoxeTrigger'](e, data)
+                      if (conteudo.actions[0].trigger) {
+                        self.$emit('OnTriggerBoxes', data.caixa.itens, index);
                       }
-                      // this.$emit('OnToolbar', objAction);
-  
                     }
-                    // self.value = event.target.value
-                    // self.$emit('input', event.target.value)
                   }
                 }
               }))
@@ -91,7 +72,6 @@
             ),
           ], ),
         ];
-        //RENDERIZANDO CAIXA DE DIVERGENCIA
       },
       onExpand(data) {
         if ('expand' in data) {
@@ -103,16 +83,12 @@
           this.$set(data, 'expand', true)
         }
       },
-      onNodeClick(e, data) {
-          //console.log(data)
-        //this.$emit('OnToolbar', data);
-      },
+      onNodeClick(e, data) {},
       collapse(list) {
         list.forEach(child => {
           if (child.expand) {
             child.expand = false
           }
-  
           child.children && this.collapse(child.children)
         })
       },
@@ -120,7 +96,7 @@
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+  <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
   .divergencia {
     width: 320px;
@@ -128,13 +104,11 @@
     padding: 15px;
     text-align: left;
   }
-  
   .divergencia-box {
     background-color: #fff;
     height: 100%;
     border-radius: 6px;
   }
-  
   .divergencia-ul {
     width: 50%;
     text-align: left;
@@ -142,7 +116,6 @@
     list-style-type: none;
     display: inline-block;
   }
-  
   .divergencia-ul-val {
     width: 50%;
     text-align: right;
@@ -150,37 +123,29 @@
     list-style-type: none;
     display: inline-block;
   }
-  
   .divergencia-ul-actions {
     color: blue;
     cursor: pointer;
     font-weight: bold;
   }
-
   .bg-white {
     background-color: #D6E1EB;
   }
-  
   .bg-orange {
     background-color: #00B4F1;
   }
-  
   .bg-gold {
     background-color: gold;
   }
-  
   .bg-gray {
     background-color: gray;
   }
-  
   .bg-lightpink {
     background-color: lightpink;
   }
-  
   .bg-chocolate {
     background-color: chocolate;
   }
-  
   .bg-tomato {
     background-color: tomato;
   }

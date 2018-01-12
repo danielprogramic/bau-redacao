@@ -1,53 +1,37 @@
 <template>
-   <div class="hello">
-      <v-container fluid>
-         <v-layout row wrap>
-            <v-flex  xs12 >
-               <v-toolbar light class="elevation-0 content" >
-               
-                  <v-select
-                     label="HOSPITAL"
-                     :items="states"
-                     autocomplete
-                     color="bluedetail"
-                     clearable 
-                     overflow  
-                     dense
-                     >
-                  </v-select>
-                  <div style="margin:30px;">       
-                  </div>
-                  <v-select 
-                     label="OPERADORA"    
-                     :items="states"
-                     autocomplete
-                     color="bluedetail"
-                     clearable
-                     dense
-                     >
-                  </v-select>
-                  <v-spacer></v-spacer>
-                  <dr-datepicker1>
-                  </dr-datepicker1>
-                  <div style="margin:10px;">
-                     até
-                  </div>
-                  <dr-datepicker2>
-                  </dr-datepicker2>
-                  <v-btn icon>
-                     <v-icon style="font-size:29px;opacity: 0.23;">comment</v-icon>
-                  </v-btn>
-               </v-toolbar>
-            </v-flex>
-            <v-flex  xs5 offset-xs1>
-               <div class="text-center">
-                  <dr-boxe :data="data" @OnBabaca="onNodeClick">
-                  </dr-boxe>
-               </div>
-            </v-flex>
-         </v-layout>
-      </v-container>
-   </div>
+  <div class="hello">
+    <v-container fluid>
+      <v-layout row wrap>
+        <v-flex xs12>
+          <v-toolbar light class="elevation-0 content">
+            <v-select label="HOSPITAL" :items="states" autocomplete color="bluedetail" clearable overflow dense>
+            </v-select>
+            <div style="margin:30px;">
+            </div>
+            <v-select label="OPERADORA" :items="states" autocomplete color="bluedetail" clearable dense>
+            </v-select>
+            <v-spacer></v-spacer>
+            <dr-datepicker1>
+            </dr-datepicker1>
+            <div style="margin:10px;">
+              até
+            </div>
+            <dr-datepicker2>
+            </dr-datepicker2>
+            <v-btn icon>
+              <v-icon style="font-size:29px;opacity: 0.23;">comment</v-icon>
+            </v-btn>
+          </v-toolbar>
+        </v-flex>
+        <v-flex xs5 offset-xs1>
+          <div class="text-center">
+            <dr-boxe :data="data" @OnTriggerBoxes="onNodeClick">
+            </dr-boxe>
+          </div>
+        </v-flex>
+      </v-layout>
+    </v-container>
+  </div>
 </template>
 
 <script>
@@ -64,7 +48,7 @@
       return {
         a1: null,
         states: [
-          'Santa Marcelina','Santa Casa','Santa Isabel','Santo Amaro'
+          'Santa Marcelina', 'Santa Casa', 'Santa Isabel', 'Santo Amaro'
         ],
         data: {
           id: 0,
@@ -73,13 +57,11 @@
             itens: [{
                 label: 'Previsão',
                 value: 100,
-  
               },
               {
                 label: 'Efetivo',
                 value: 100,
               },
-  
             ],
           },
           children: [{
@@ -98,7 +80,6 @@
                   label: 'Efetivo',
                   value: 100,
                 },
-  
               ],
             },
           }, {
@@ -145,12 +126,11 @@
       },
     },
     mounted() {
-
     }
   };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+  <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 
 </style>
