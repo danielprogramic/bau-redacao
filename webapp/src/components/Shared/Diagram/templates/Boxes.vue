@@ -124,7 +124,7 @@
     display: inline-block;
   }
   .divergencia-ul-actions {
-    color: blue;
+    color: #00B4F1;
     cursor: pointer;
     font-weight: bold;
   }

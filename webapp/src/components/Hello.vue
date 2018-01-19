@@ -4,12 +4,12 @@
       <v-layout row wrap>
         <v-flex xs12>
           <v-toolbar light class="elevation-0 content">
-            <v-select label="HOSPITAL" :items="states" autocomplete color="bluedetail" clearable overflow dense>
+            <!-- <v-select label="HOSPITAL" :items="states" autocomplete color="bluedetail" clearable overflow dense>
             </v-select>
             <div style="margin:30px;">
             </div>
             <v-select label="OPERADORA" :items="states" autocomplete color="bluedetail" clearable dense>
-            </v-select>
+            </v-select> -->
             <v-spacer></v-spacer>
             <dr-datepicker1>
             </dr-datepicker1>
