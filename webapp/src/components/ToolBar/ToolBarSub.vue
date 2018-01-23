@@ -25,7 +25,7 @@
           <v-container class="text-xs-center">
             <v-layout row child-flex justify-center align-center wrap>
               <v-flex fill-height>
-                <span class="colorblue">TITULO DO CONJUNTO DE ANÁLISES</span>
+                <span class="bluedetail-font">TITULO DO CONJUNTO DE ANÁLISES</span>
               </v-flex>
             </v-layout>
           </v-container>
@@ -35,7 +35,7 @@
           <v-container class="text-xs-center">
             <v-layout row child-flex justify-center align-center wrap>
               <v-flex fill-height>
-                <span class="colorblackop">CNPJ:03.649.560/0001-60</span>
+                <span class="cinza2-font">CNPJ:03.649.560/0001-60</span>
               </v-flex>
             </v-layout>
           </v-container>

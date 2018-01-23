@@ -1,7 +1,13 @@
 <template>
   <div class="boxes">
     <div class="text-center">
-      <dr-tree :data="data" :horizontal="horizontal" :collapsable="collapsable" :label-class-name="labelClassName" :render-content="renderContent" @on-expand="onExpand" @on-node-click="onNodeClick">
+      <dr-tree :data="data"
+      :horizontal="mode" 
+      :collapsable="collapsable" 
+      :label-class-name="labelClassName" 
+      :render-content="renderContent" 
+      @on-expand="onExpand" 
+      @on-node-click="onNodeClick">
       </dr-tree>
     </div>
   </div>
@@ -12,7 +18,8 @@
   export default {
     name: 'boxes',
     props: [
-      'data'
+      'data',
+      'mode'
     ],
     components: {
       DrTree
@@ -68,7 +75,13 @@
                   'divergencia-ul-val': true
                 },
               },
-              data.caixa.itens.map(conteudo => h('li', conteudo.value))
+              data.caixa.itens.map(conteudo => h('li', {
+                domProps: {
+                  innerHTML: conteudo.value
+                }, 
+              }
+ 
+              ))
             ),
           ], ),
         ];
@@ -99,9 +112,9 @@
   <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
   .divergencia {
-    width: 320px;
+    width: 360px;
     font-weight: bold;
-    padding: 15px;
+    padding: 9px;
     text-align: left;
   }
   .divergencia-box {
@@ -110,16 +123,20 @@
     border-radius: 6px;
   }
   .divergencia-ul {
-    width: 50%;
+    width: 65%;
     text-align: left;
-    padding: 20px;
+    color:#586374;
+    padding-left:12px;
+    padding-top:12px;
     list-style-type: none;
     display: inline-block;
   }
   .divergencia-ul-val {
-    width: 50%;
+    width: 35%;
     text-align: right;
-    padding: 20px;
+    font-weight: bold;
+    padding-right:12px;
+    padding-top:12px;
     list-style-type: none;
     display: inline-block;
   }

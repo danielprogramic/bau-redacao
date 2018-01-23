@@ -21,7 +21,6 @@
           <!-- <v-btn icon @click.stop="drawer = !drawer">
             <v-icon style="font-size:22px;color:#8f8f9b">sort</v-icon>
           </v-btn> -->
-             <!-- {{toolbarItens}}  -->
         </v-layout>
         <v-fade-transition mode="out-in">
           <router-view></router-view>
@@ -30,7 +29,7 @@
       <dr-footer :loggedIn="!$store.state.isUserLoggedIn"></dr-footer>
     </v-content>
   
-    <dr-navigation-overlaping v-if="$store.state.isUserLoggedIn" :toolbarItens="toolbarItens">
+    <dr-navigation-overlaping v-if="toolbarItens.removeNavOverlaping && $store.state.isUserLoggedIn" :toolbarItens="toolbarItens">
     </dr-navigation-overlaping>
   
     <v-footer v-if="$store.state.isUserLoggedIn" :fixed="false" app>
@@ -45,7 +44,7 @@
   import Navigation from '@/components/Navigation/Navigation'
   import NavigationOverlaping from '@/components/Navigation/NavigationOverlaping'
   import Footer from '@/components/Footer'
-  
+
   export default {
     components: {
       'dr-toolbar': Toolbar,
@@ -58,6 +57,7 @@
       return {
         drawer: true,
         rightDrawer: false,
+        exibicao: false,
         toolbarItens: new Object(),
       }
     },
@@ -65,9 +65,10 @@
       onToolbar(value) {
         this.rightDrawer = true;
         this.toolbarItens = value[0];
-        console.log(this.toolbarItens);
-      },
-    }
+        this.exibicao = value[0].exibicao;
+      }
+    },
+
   }
 </script>
 

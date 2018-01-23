@@ -1,13 +1,19 @@
 <template>
-  <div class="navigation_overlaping" v-if="$store.state.isUserLoggedIn">
-
-    <v-navigation-drawer class="secondary elevation-2 bordercard" v-bind:style="{height:toolbarItensFlag.height +'%'  ,width:toolbarItensFlag.widthOverlaping + 'px' ,marginRight: toolbarItensFlag.marginRight + 'px'}" v-bind:class="{'mg': !toolbarItensFlag.habilitador }" temporary fixed :right="true"
-      v-model="toolbarItensFlag.habilitador" app>
+  <div class="navigation_overlaping" >
+    <!-- <div style="margin-left:200px;background-color:yellow">
+      {{toolbarItens}}
+    </div> -->
+    <v-navigation-drawer  class="secondary elevation-2 bordercard" 
+      v-bind:style="styleObjectOverlaping"
+      v-bind:class="{'mg': !toolbarItens.habilitador }" 
+      temporary fixed  
+      :right="toolbarItens.exibicao"
+      v-model="toolbarItens.habilitador" app>
       <v-toolbar class="toolbarTitle" flat height="64">
-        <v-icon style="color: #0A1F30" large>{{toolbarItensFlag.icon }}</v-icon>
-        <div class="toolbaRightLbl">{{toolbarItensFlag.titulo}}</div>
+        <v-icon style="color: #0A1F30" large>{{toolbarItens.icon }}</v-icon>
+        <div class="toolbaRightLbl">{{toolbarItens.titulo}}</div>
         <v-spacer></v-spacer>
-        <v-btn @click="close()" icon>
+        <v-btn @click.native="close()" icon>
           <v-icon>close</v-icon>
         </v-btn>
       </v-toolbar>

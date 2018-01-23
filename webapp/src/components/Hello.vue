@@ -25,7 +25,9 @@
         </v-flex>
         <v-flex xs5 offset-xs1>
           <div class="text-center">
-            <dr-boxe :data="data" @OnTriggerBoxes="onNodeClick">
+            <dr-boxe :data="data" :mode="true" @OnTriggerBoxes="onNodeClick">
+            </dr-boxe>
+            <dr-boxe :data="data1"  :mode="true"  @OnTriggerBoxes="onNodeClick1">
             </dr-boxe>
           </div>
         </v-flex>
@@ -53,67 +55,427 @@
         data: {
           id: 0,
           caixa: {
-            titulo: 'Fechamento Novembro/16',
+            titulo: 'ENVIO - LOTES GUIAS',
             itens: [{
-                label: 'Previsão',
-                value: 100,
+                label: 'Qtd Guias',
+                value: '1.302',
               },
               {
-                label: 'Efetivo',
-                value: 100,
+                label: 'SP/SADT',
+                value: '1.190',
+              },
+              {
+                label: 'Internação',
+                value: '112',
+              },
+              {
+                label: '</br>',
+                value: '</br>',
+              },
+              {
+                label: 'Qtd Procedimentos Executados',
+                value: '1.473',
+              },
+              {
+                label: 'Qtd Despesas - Códigos',
+                value: '1.473',
+              },
+              {
+                label: 'Valor Cálculado',
+                value: 'R$ 1.886,65',
+              },
+              {
+                label: 'Valor Total Lote',
+                value: 'R$ 1.892,86',
+              },
+              {
+                label: '<hr>',
+                value: '<hr>',
+              },
+              {
+                label: '</br>&nbsp;&nbsp;Ver Mais&nbsp;&nbsp;&#9658;',
+                value: '</br></br> ',
+                actions: [{
+                  path: 'http://www.danielprogramic.com.br',
+                  trigger: true,
+                }],
+              },
+              {
+                label: '</br>',
+                value: '</br>',
               },
             ],
           },
           children: [{
             id: 5,
             caixa: {
-              titulo: 'Pendências de retorno',
+              titulo: 'PENDÊNCIA DE RETORNO',
               itens: [{
-                  label: 'Previsão',
-                  value: 100,
-                  actions: [{
-                    path: 'http://www.danielprogramic.com.br',
-                    trigger: true,
-                  }],
+                  label: 'Qtd Guias',
+                  value: 3,
                 },
                 {
-                  label: 'Efetivo',
-                  value: 100,
+                  label: 'SP/SADT',
+                  value: 3,
                 },
+                {
+                  label: 'Internação',
+                  value: 0,
+                },
+                {
+                  label: '</br>',
+                  value: '</br>',
+                },
+                {
+                  label: 'Valor Calculado',
+                  value: 'R$ 0,00',
+                },
+                {
+                  label: 'Valor Total Lote',
+                  value: 'R$ 705,00',
+                },
+                {
+                label: '<hr>',
+                value: '<hr>',
+              },
+              {
+                label: '</br>&nbsp;&nbsp;Ver Mais&nbsp;&nbsp;&#9658;',
+                value: '</br></br> ',
+                actions: [{
+                  path: 'http://www.danielprogramic.com.br',
+                  trigger: true,
+                }],
+              },
+              {
+                label: '</br>',
+                value: '</br>',
+              },
               ],
             },
           }, {
             id: 6,
             caixa: {
-              titulo: 'Retorno Confirmado',
+              titulo: ' RETORNO CONFIRMADO',
+              itens: [
+                {
+                  label: 'Qtd Guias',
+                  value: '1.299',
+                }, 
+                {
+                  label: 'SP/SADT',
+                  value: '1.187',
+                },
+                {
+                  label: 'Internações',
+                  value: '112',
+                }, 
+                {
+                  label: '</br>',
+                  value: '</br>',
+                }, 
+                {
+                  label: 'Valor Calculado',
+                  value: 'R$ 0,00',
+                }, 
+                {
+                  label: 'Valor Total Lote',
+                  value: 'R$ 1.886.114,65',
+                }, 
+                {
+                  label: '</br>',
+                  value: '</br>',
+                },
+                {
+                  label: 'Valor Aprovado',
+                  value: 'R$ 1.538.878,73',
+                },
+                {
+                  label: 'Valor Glosado',
+                  value: 'R$ 353.082,13',
+                },
+                {
+                  label: '% Glosa',
+                  value: '18,66%',
+                },
+                {
+                label: '<hr>',
+                value: '<hr>',
+              },
+              {
+                label: '</br>&nbsp;&nbsp;Ver Mais&nbsp;&nbsp;&#9658;',
+                value: '</br></br> ',
+                actions: [{
+                  path: 'http://www.danielprogramic.com.br',
+                  trigger: true,
+                }],
+              },
+              {
+                label: '</br>',
+                value: '</br>',
+              },
+              ],
+            },
+          children: [{
+            id: 5,
+            caixa: {
+              titulo: 'RETORNO CONFIRMADO - SEM GLOSA',
+              itens: [
+                {
+                  label: 'Qtd Guias',
+                  value: '1.299',
+                }, 
+                {
+                  label: 'SP/SADT',
+                  value: '1.187',
+                },
+                {
+                  label: 'Internações',
+                  value: '112',
+                },
+                {
+                  label: '</br>',
+                  value: '</br>',
+                },
+                {
+                  label: 'Valor Cálculado',
+                  value: 'R$ 0,00',
+                },
+                {
+                  label: 'Valor Total do Lote',
+                  value: 'R$ 1.353.082,13',
+                }, 
+                {
+                  label: '</br>',
+                  value: '</br>',
+                },
+                {
+                  label: 'Valor Total do Lote',
+                  value: 'R$ 1.353.082,13',
+                }, 
+                {
+                label: '<hr>',
+                value: '<hr>',
+              },
+              {
+                label: '</br>&nbsp;&nbsp;Ver Mais&nbsp;&nbsp;&#9658;',
+                value: '</br></br> ',
+                actions: [{
+                  path: 'http://www.danielprogramic.com.br',
+                  trigger: true,
+                }],
+              },
+              {
+                label: '</br>',
+                value: '</br>',
+              },
+              ],
+            },
+          }, {
+            id: 6,
+            caixa: {
+              titulo: 'RETORNO CONFIRMADO - COM GLOSA',
+              itens: [ {
+                  label: 'Qtd Guias',
+                  value: '1.299',
+                }, 
+                {
+                  label: 'SP/SADT',
+                  value: '1.187',
+                },
+                {
+                  label: 'Internações',
+                  value: '112',
+                }, 
+                {
+                  label: '</br>',
+                  value: '</br>',
+                }, 
+                {
+                  label: 'Valor Calculado',
+                  value: 'R$ 0,00',
+                }, 
+                {
+                  label: 'Valor Total Lote',
+                  value: 'R$ 1.886.114,65',
+                }, 
+                {
+                  label: '</br>',
+                  value: '</br>',
+                },
+                {
+                  label: 'Valor Aprovado',
+                  value: 'R$ 1.538.878,73',
+                },
+                {
+                  label: 'Valor Glosado',
+                  value: 'R$ 353.082,13',
+                },
+                {
+                  label: '% Glosa',
+                  value: '18,66%',
+                },
+                {
+                label: '<hr>',
+                value: '<hr>',
+              },
+              {
+                label: '</br>&nbsp;&nbsp;Ver Mais&nbsp;&nbsp;&#9658;',
+                value: '</br></br> ',
+                actions: [{
+                  path: 'http://www.danielprogramic.com.br',
+                  trigger: true,
+                }],
+              },
+              {
+                label: '</br>',
+                value: '</br>',
+              } 
+              ],
+            },
+          }]
+          }]
+        },
+        data1: {
+          id: 0,
+          caixa: {
+            titulo: 'RETORNO - LOTES GUIAS',
+            itens: [{
+                label: 'Qtd Guias',
+                value: '1.302',
+              },
+              {
+                label: 'SP/SADT',
+                value: '1.190',
+              },
+              {
+                label: 'Internação',
+                value: '112',
+              },
+              {
+                label: '</br>',
+                value: '</br>',
+              },
+              {
+                label: 'Qtd Procedimentos Executados',
+                value: '1.473',
+              },
+              {
+                label: 'Qtd Despesas - Códigos',
+                value: '1.473',
+              },
+              {
+                label: 'Valor Cálculado',
+                value: 'R$ 1.886,65',
+              },
+              {
+                label: 'Valor Total Lote',
+                value: 'R$ 1.892,86',
+              },
+              {
+                label: '<hr>',
+                value: '<hr>',
+              },
+              {
+                label: '</br>&nbsp;&nbsp;Ver Mais&nbsp;&nbsp;&#9658;',
+                value: '</br></br> ',
+                actions: [{
+                  path: 'http://www.danielprogramic.com.br',
+                  trigger: true,
+                }],
+              },
+              {
+                label: '</br>',
+                value: '</br>',
+              },
+            ],
+          },
+          children: [{
+            id: 5,
+            caixa: {
+              titulo: 'RETORNO NA COMPETÊNCIA',
               itens: [{
-                  label: 'Previsão',
-                  value: 100,
+                  label: 'Qtd Guias',
+                  value: 3,
                 },
                 {
-                  label: 'Efetivo',
-                  value: 100,
-                  actions: [{
-                    path: 'http://www.danielprogramic.com.br',
-                    trigger: true,
-                  }],
+                label: '<hr>',
+                value: '<hr>',
+              },
+              {
+                label: '</br>&nbsp;&nbsp;Ver Mais&nbsp;&nbsp;&#9658;',
+                value: '</br></br> ',
+                actions: [{
+                  path: 'http://www.danielprogramic.com.br',
+                  trigger: true,
+                }],
+              },
+              {
+                label: '</br>',
+                value: '</br>',
+              },
+              ],
+            },
+          }, {
+            id: 6,
+            caixa: {
+              titulo: ' RETORNO CONFIRMADO',
+              itens: [
+                {
+                  label: 'Qtd Guias',
+                  value: '1.299',
+                }, 
+                {
+                  label: 'SP/SADT',
+                  value: '1.187',
                 },
                 {
-                  label: 'Previsão',
-                  value: 100,
+                  label: 'Internações',
+                  value: '112',
+                }, 
+                {
+                  label: '</br>',
+                  value: '</br>',
+                }, 
+                {
+                  label: 'Valor Calculado',
+                  value: 'R$ 0,00',
+                }, 
+                {
+                  label: 'Valor Total Lote',
+                  value: 'R$ 1.886.114,65',
+                }, 
+                {
+                  label: '</br>',
+                  value: '</br>',
                 },
                 {
-                  label: 'Efetivo',
-                  value: 100,
+                  label: 'Valor Aprovado',
+                  value: 'R$ 1.538.878,73',
                 },
                 {
-                  label: 'Previsão',
-                  value: 100,
+                  label: 'Valor Glosado',
+                  value: 'R$ 353.082,13',
                 },
                 {
-                  label: 'Efetivo',
-                  value: 500,
+                  label: '% Glosa',
+                  value: '18,66%',
                 },
+                {
+                label: '<hr>',
+                value: '<hr>',
+              },
+              {
+                label: '</br>&nbsp;&nbsp;Ver Mais&nbsp;&nbsp;&#9658;',
+                value: '</br></br> ',
+                actions: [{
+                  path: 'http://www.danielprogramic.com.br',
+                  trigger: true,
+                }],
+              },
+              {
+                label: '</br>',
+                value: '</br>',
+              },
               ],
             },
           }]
@@ -122,7 +484,11 @@
     },
     methods: {
       onNodeClick(item, index) {
-        item[index].value = 600;
+        alert("DADDA")
+        //item[index].value = 600;
+      },
+      onNodeClick1(item, index) {
+        //item[index].value = 600;
       },
     },
     mounted() {
@@ -132,5 +498,10 @@
 
   <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-
+hr {
+  margin-top:10px;
+  border:0;
+	background-color: #E1EBF6;
+  height: 2px;
+}
 </style>

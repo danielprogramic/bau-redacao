@@ -1,12 +1,15 @@
 import Helpers from '@/mixins/Helper'
+
 export default {
   props: [
-    'toolbarItens'
+    'toolbarItens',
   ],
   data() {
     return {
       listas: [{
           name: 'mais',
+          timer: '',
+          renderizaNav: false,
           itens: [
             { icon: 'settings', title: 'Configurações' },
             { icon: 'help', title: 'Ajuda' },
@@ -30,14 +33,29 @@ export default {
             { icon: 'folder_shared', title: 'Acessos' },
           ]
         },
+        {
+          name: 'upload',
+          itens: [
+
+          ]
+        },
+        {
+          name: 'modulos',
+          itens: [
+
+          ]
+        },
       ],
     }
   },
   methods: {
     close() {
-      this.toolbarItensFlag.habilitador = false;
+      this.toolbarItens.habilitador = false;
+      this.toolbarItens.removeNavOverlaping = false;
     },
     onLogout() {
+      this.toolbarItens.habilitador = false;
+      this.toolbarItens.removeNavOverlaping = false;
       this.$store.dispatch('setToken', null)
       this.$store.dispatch('setUser', null)
       this.$router.push({
@@ -49,8 +67,19 @@ export default {
     },
   },
   computed: {
-    toolbarItensFlag: function() {
-      return this.toolbarItens
+    styleObjectOverlaping: function() {
+      if (this.toolbarItens.exibicao)
+        return {
+          height: this.toolbarItens.height + '%',
+          width: this.toolbarItens.widthOverlaping + 'px',
+          marginRight: this.toolbarItens.marginRight + 'px'
+        }
+      else
+        return {
+          height: this.toolbarItens.height + '%',
+          width: this.toolbarItens.widthOverlaping + 'px',
+          marginLeft: this.toolbarItens.marginLeft + 'px'
+        }
     },
     getItens: function() {
       const objAction = Helpers.filters.elements(this.listas, this.toolbarItens.name, 'name');
@@ -58,7 +87,13 @@ export default {
     }
   },
   created() {
-    this.close();
-    console.log('CRIOU COMPONENTE NAVIGATION OVERLAPING')
-  }
+    console.log('CREATE OVERLAPING')
+    this.timer = setTimeout(() => {
+      this.toolbarItens.habilitador = true;
+    }, 500)
+
+  },
+  beforeDestroy() {
+    clearInterval(this.timer)
+  },
 }
