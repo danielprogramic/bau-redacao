@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="sumario">
     <v-container fluid>
       <v-layout row wrap>
         <v-flex xs12>
@@ -37,10 +37,10 @@
 </template>
 
 <script>
-  import Datepicker from "./Shared/Datepicker/Datepicker";
-  import Boxes from "./Shared/Diagram/templates/Boxes";
+  import Datepicker from "../../Shared/Datepicker/Datepicker";
+  import Boxes from "../../Shared/Diagram/templates/Boxes";
   export default {
-    name: "hello",
+    name: "sumario",
     components: {
       'dr-boxe': Boxes,
       'dr-datepicker1': Datepicker,
@@ -456,11 +456,14 @@
     },
     methods: {
       onNodeClick(item, index) {
-        //alert("DADDA")
-        //item[index].value = 600;
+        this.$router.push({
+          name: 'Integridadedetalhe'
+        })
       },
       onNodeClick1(item, index) {
-        //item[index].value = 600;
+        this.$router.push({
+          name: 'Integridadedetalhe'
+        })
       },
     },
     mounted() {

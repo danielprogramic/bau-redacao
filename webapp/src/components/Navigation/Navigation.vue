@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-navigation-drawer fixed :mini-variant="true" :clipped="false" v-model="drawerFlag" class="secondary" dark app>
+    <v-navigation-drawer  fixed :mini-variant="true" :clipped="false" v-model="drawerFlag" class="secondary" dark app>
       <div v-for="(item, i) in items" :key="i">
         <v-list 
            @mouseover.native="item.iconeffecover = renderbuttonclick(item.active)+'-icons_over'" 

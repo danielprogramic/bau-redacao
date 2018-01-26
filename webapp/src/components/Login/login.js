@@ -25,7 +25,7 @@ export default {
         this.$store.dispatch('setToken', response.data.token)
         this.$store.dispatch('setUser', response.data.usuario)
         this.$router.push({
-          name: 'dashboard'
+          name: 'integridadesumario'
         })
       } catch (error) {
         this.$notify(MessagensNotificar.error(error.response.data.error))

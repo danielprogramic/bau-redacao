@@ -1,7 +1,7 @@
 <template>
   <div style=" transition: all ease-in-out .9s;" v-sticky="stickyConfig">
     <nav>
-      <v-toolbar dark class="primary hidden-sm-and-down" :clipped-left="true" app>
+      <v-toolbar dark class="primary hidden-sm-and-down " :clipped-left="true" app>
         <!-- <v-toolbar-side-icon style="font-size:22px;" @click.stop="drawerFlag()"></v-toolbar-side-icon> -->
         <!-- <v-list-tile-action>
           <v-container class="text-xs-center">
@@ -12,62 +12,29 @@
             </v-layout>
           </v-container>
         </v-list-tile-action> -->
-       <div v-for="(item, i) in toolbar_obj_left" :key="i">
+       <div v-for="(item, i) in toolbar_obj_left" >
           <v-btn icon v-bind:style="{width: item.habilitador ? item.width+'px' : '30px' }" @click.stop="actionDrawer(item.name, 'left')">
             <v-icon style="font-size:29px;">{{item.icon}}</v-icon>
           </v-btn>
         </div>   
-        <v-list-tile-action>
-          <v-container class="text-xs-center">
-            <v-layout row child-flex justify-center align-center wrap>
-              <v-flex fill-height>
-                <v-icon style="font-size:29px;">folder_open</v-icon>
-              </v-flex>
-            </v-layout>
-          </v-container>
-        </v-list-tile-action>
-        <v-container class="text-xs-center">
-          <v-layout row child-flex justify-center align-center wrap>
-            <v-flex style="margin-top:-22px;" fill-height>
-              <img src="/static/logo-domrock-nav.png" alt="Dom Rock" />
-            </v-flex>
-          </v-layout>
-        </v-container>
+        <v-btn icon>
+          <v-icon style="font-size:29px;">folder_open</v-icon>
+        </v-btn>
+
         <v-spacer></v-spacer>
-  
         <v-btn icon>
           <v-icon style="font-size:29px;">notifications</v-icon>
         </v-btn>
         <v-btn icon>
           <v-icon style="font-size:29px;">search</v-icon>
         </v-btn>
-        <!-- <v-btn icon @click="onLogout()">
-            <v-icon style="font-size:29px;">person</v-icon>
-          </v-btn> -->
-        <div v-for="(item, i) in toolbar_obj_right" :key="i">
+        <div v-for="(item, i) in toolbar_obj_right" >
           <v-btn icon v-bind:style="{width: item.habilitador ? item.width+'px' : '30px' }" @click.stop="actionDrawer(item.name, 'right')">
             <v-icon style="font-size:29px;">{{item.icon}}</v-icon>
           </v-btn>
         </div>
-        <!-- 
-            <v-btn  v-bind:style="{width: aumentarwidth + 'px'}" @click="actionDrawer('home_conta')">
-            <v-icon style="font-size:29px;">person</v-icon>
-          </v-btn>
-          <v-btn icon @click.stop="actionDrawer('mais')">
-            <v-icon style="font-size:29px;">more_horiz</v-icon>
-          </v-btn> 
-          -->
-  
-        <!-- <v-toolbar-items>
-        <v-menu transition="scale-transition">
-        <v-btn dark color="primary" slot="activator">Scale Transition</v-btn>
-        <v-list>
-          <v-list-tile v-for="n in 5" :key="n" @click="">
-            <v-list-tile-title v-text="'Item ' + n"></v-list-tile-title>
-          </v-list-tile>
-        </v-list>
-        </v-menu>
-        </v-toolbar-items>  -->
+      <a class="navbar-brand" href="http://disputebills.com"><img src="/static/logo-domrock-nav.png" alt="Dispute Bills">
+        </a>
       </v-toolbar>
       <div v-if="$store.state.isUserLoggedIn" class="hidden-md-and-up" app>
         <v-expansion-panel class="pink" dark="dark">
