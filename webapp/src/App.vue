@@ -13,11 +13,11 @@
         </v-fade-transition>
       </div>
       <v-container v-if="$store.state.isUserLoggedIn" fluid >
-          <center>
+          <!-- <center>
             <v-btn icon @click.stop="drawer = !drawer">
               <v-icon style="font-size:22px;color:#8f8f9b">sort</v-icon>
             </v-btn>
-          </center>
+          </center> -->
 
         <v-fade-transition mode="out-in">
           <router-view></router-view>

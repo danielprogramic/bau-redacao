@@ -37,6 +37,13 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /\.(pdf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          name: utils.assetsPath('[name].[hash:7].[ext]')
+        }
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {

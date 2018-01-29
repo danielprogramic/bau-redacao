@@ -2,7 +2,8 @@
   <div>
     <v-navigation-drawer  fixed :mini-variant="true" :clipped="false" v-model="drawerFlag" class="secondary" dark app>
       <div v-for="(item, i) in items" :key="i">
-        <v-list 
+        <v-tooltip right>
+        <v-list slot="activator"
            @mouseover.native="item.iconeffecover = renderbuttonclick(item.active)+'-icons_over'" 
            @mouseout.native="item.iconeffecover = renderbuttonclick(item.active)+'-icons'"  
            v-bind:class="[renderbuttonclick(item.active)]"  
@@ -17,7 +18,10 @@
             </v-list-tile-content>
           </v-list-tile>
         </v-list>
+          <span>{{item.legenda}}</span>
+       </v-tooltip>
       </div>
+
     </v-navigation-drawer>
   </div>
 </template>

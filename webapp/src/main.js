@@ -6,7 +6,7 @@ import App from './App'
 import router from './router'
 import { sync } from 'vuex-router-sync'
 import store from '@/store/store'
-
+import VueNVD3 from 'vue-nvd3'
 
 Vue.use(Vuetify, {
   theme: {
@@ -27,6 +27,7 @@ Vue.use(Vuetify, {
 })
 
 Vue.use(Notifications)
+Vue.use(VueNVD3);
 
 Vue.config.productionTip = false
 
