@@ -3,7 +3,7 @@
     <div class="text-center">
       <dr-tree :data="data"
       :horizontal="mode" 
-      :collapsable="collapsable" 
+      :collapsable="aberto" 
       :label-class-name="labelClassName" 
       :render-content="renderContent" 
       @on-expand="onExpand" 
@@ -19,7 +19,8 @@
     name: 'boxes',
     props: [
       'data',
-      'mode'
+      'mode',
+      'aberto',
     ],
     components: {
       DrTree

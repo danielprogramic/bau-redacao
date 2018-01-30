@@ -17,15 +17,15 @@
             </v-btn>
           </v-toolbar>
         </v-flex>
-        <v-flex xs4>
+        <!-- <v-flex xs4>
           <v-card style="background-color: #D6E1EB;">
             <v-card-media class="white--text" height="600px" src="/static/pizza.jpg" contain>
             </v-card-media>
           </v-card>
-        </v-flex>
-        <v-flex xs8>
-          <v-card>
-            <v-card-media class="white--text" height="600px" src="/static/Intergridade.jpg" contain>
+        </v-flex> -->
+        <v-flex xs12>
+          <v-card style="padding:30px;" >
+            <v-card-media class="white--text" height="600px" src="/static/qualicorp.jpg" contain>
               <v-container fill-height fluid>
                 <v-layout fill-height>
                   <v-flex xs12 align-end flexbox>

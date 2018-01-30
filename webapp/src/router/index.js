@@ -12,7 +12,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    { path: '/dashboard', name: 'dashboard', component: Hello, beforeEnter: AuthGuard.auth },
+    // { path: '/dashboard', name: 'dashboard', component: Hello, beforeEnter: AuthGuard.auth },
     { path: '/login', name: 'login', component: Login, beforeEnter: AuthGuard.guest },
     { path: '/integridade/sumario', name: 'integridadesumario', component: IntegridadeSumario, beforeEnter: AuthGuard.auth },
     { path: '/integridade/detalhe', name: 'Integridadedetalhe', component: IntegridadeDetalhe, beforeEnter: AuthGuard.auth },

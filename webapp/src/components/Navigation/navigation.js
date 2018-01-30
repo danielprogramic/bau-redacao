@@ -43,7 +43,7 @@ export default {
           color: "#0A1F30",
           iconeffecover: "navigation-icons",
           active: false,
-          legenda: 'Detalhes',
+          legenda: 'Detalhe',
           path: 'Integridadedetalhe'
         },
         {
@@ -53,7 +53,7 @@ export default {
           color: "#0A1F30",
           iconeffecover: "navigation-icons",
           active: false,
-          legenda: 'Gráficos',
+          legenda: 'Gráfico',
           path: ''
         },
         {
@@ -73,7 +73,7 @@ export default {
           color: "#0A1F30",
           iconeffecover: "navigation-icons",
           active: false,
-          legenda: 'Repositórios',
+          legenda: 'Repositório',
           path: ''
         },
 

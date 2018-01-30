@@ -21,7 +21,7 @@ export default {
               icon: '',
               perfilAtv: 'PERFIL ATIVO',
               cnpj: 'CNPJ:01.456.298/0001-15',
-              empresa: 'Qualicorp corretora de Seguros S.A',
+              empresa: 'Ciclo De Recebíveis',
               collapse: [
                 { action: 'restore_page', title: 'Detalhe 1' },
                 { action: 'restore_page', title: 'Detalhe 2' },
@@ -35,15 +35,13 @@ export default {
         },
         {
           name: 'upload',
-          itens: [
-
-          ]
+          itens: []
         },
         {
           name: 'modulos',
-          itens: [
-
-          ]
+          itens: [{
+            image: true,
+          }]
         },
       ],
     }

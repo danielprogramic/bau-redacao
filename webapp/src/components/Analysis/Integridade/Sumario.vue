@@ -25,9 +25,9 @@
         </v-flex>
         <v-flex xs5 offset-xs1>
           <div class="text-center">
-            <dr-boxe :data="data" :mode="true" @OnTriggerBoxes="onNodeClick">
+            <dr-boxe :data="data" :mode="true" :aberto="true" @OnTriggerBoxes="onNodeClick">
             </dr-boxe>
-            <dr-boxe :data="data1"  :mode="true"  @OnTriggerBoxes="onNodeClick1">
+            <dr-boxe :data="data1"  :mode="true" :aberto="true" @OnTriggerBoxes="onNodeClick1">
             </dr-boxe>
           </div>
         </v-flex>

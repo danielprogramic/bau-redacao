@@ -8,7 +8,7 @@
       v-bind:class="{'mg': !toolbarItens.habilitador }" 
       temporary fixed  
       :right="toolbarItens.exibicao"
-      v-model="toolbarItens.habilitador" app>
+      v-model="toolbarItens.habilitador">
       <v-toolbar class="toolbarTitle" flat height="64">
         <v-icon style="color: #0A1F30" large>{{toolbarItens.icon }}</v-icon>
         <div class="toolbaRightLbl">{{toolbarItens.titulo}}</div>
@@ -43,7 +43,7 @@
           </v-list-group>
           </v-list>
             <!-- LISTA NORMAL -->
-            <v-list-tile v-if="!item.collapse" avatar ripple @click="toggle(index)" :key="item.title">
+            <v-list-tile v-if="!item.collapse && !item.image" avatar ripple @click="toggle(index)" :key="item.title">
               <v-list-tile-avatar>
                 <v-icon class="navigation_overlaping-color" medium>{{ item.icon }}</v-icon>
               </v-list-tile-avatar>
@@ -51,6 +51,21 @@
                 <v-list-tile-title >{{ item.title }}</v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
+           <!-- LISTA NORMAL -->
+           <div  v-if="item.image" :key="item.title">
+           <v-card >
+            <v-card-media height="800px" src="/static/menu.jpg" >
+              <v-container fill-height fluid>
+                <v-layout fill-height>
+                  <v-flex xs12 align-end flexbox>
+                  </v-flex>
+                </v-layout>
+              </v-container>
+            </v-card-media>
+          </v-card>
+           </div>
+  
+
             <center>
               <div class="navigation_overlaping-divider" v-if="index + 1 < getItens.length" :key="item.title"></div>
             </center>     

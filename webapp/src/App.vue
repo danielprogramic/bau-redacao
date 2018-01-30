@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire" light>
-    <dr-navigation v-if="$store.state.isUserLoggedIn" :drawer="drawer">
+    <dr-navigation  v-if="$store.state.isUserLoggedIn" :drawer="drawer">
     </dr-navigation>
     <dr-toolbar v-if="$store.state.isUserLoggedIn" :rightDrawer="rightDrawer" @OnToolbar="onToolbar">
     </dr-toolbar>

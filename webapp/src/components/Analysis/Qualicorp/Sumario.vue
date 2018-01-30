@@ -25,7 +25,7 @@
         </v-flex>
         <v-flex xs5 offset-xs1>
           <div class="text-center">
-            <dr-boxe :data="data" :mode="true" @OnTriggerBoxes="onNodeClick">
+            <dr-boxe :data="data" :mode="true" :aberto="false" @OnTriggerBoxes="onNodeClick">
             </dr-boxe>
           </div>
         </v-flex>
@@ -47,6 +47,7 @@
     data() {
       return {
         a1: null,
+        aberto: false,
         states: [
           'Santa Marcelina', 'Santa Casa', 'Santa Isabel', 'Santo Amaro'
         ],
@@ -124,45 +125,21 @@
               titulo: 'DEMOSTRATIVO',
               itens: [
                 {
-                  label: 'Qtd Guias',
-                  value: '1.299',
+                  label: 'Valor Prêmio',
+                  value: 'R$ 3.976.566,85',
                 }, 
                 {
-                  label: 'SP/SADT',
-                  value: '1.187',
-                },
-                {
-                  label: 'Internações',
-                  value: '112',
-                }, 
-                {
-                  label: '</br>',
-                  value: '</br>',
-                }, 
-                {
-                  label: 'Valor Calculado',
+                  label: 'Desconto Base Cálc; R$',
                   value: 'R$ 0,00',
+                },
+                {
+                  label: 'Base Cáculo',
+                  value: 'R$ 3.976.566,85',
                 }, 
                 {
-                  label: 'Valor Total Lote',
-                  value: 'R$ 1.886.114,65',
+                  label: 'Valor Recebido',
+                  value: 'R$ 634.886,41',
                 }, 
-                {
-                  label: '</br>',
-                  value: '</br>',
-                },
-                {
-                  label: 'Valor Aprovado',
-                  value: 'R$ 1.538.878,73',
-                },
-                {
-                  label: 'Valor Glosado',
-                  value: 'R$ 353.082,13',
-                },
-                {
-                  label: '% Glosa',
-                  value: '18,66%',
-                },
                 {
                 label: '<hr>',
                 value: '<hr>',
@@ -188,7 +165,7 @@
     methods: {
       onNodeClick(item, index) {
         this.$router.push({
-          name: 'Integridadedetalhe'
+          name: 'qualicorpdetalhe'
         })
       },
     },

@@ -25,7 +25,7 @@
           <v-container class="text-xs-center">
             <v-layout row child-flex justify-center align-center wrap>
               <v-flex fill-height>
-                <span class="bluedetail-font">TITULO DO CONJUNTO DE ANÁLISES</span>
+                <span class="bluedetail-font">CICLO DE RECEBÍVEIS</span>
               </v-flex>
             </v-layout>
           </v-container>
