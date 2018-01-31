@@ -3,6 +3,7 @@ var fs = require('fs')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+var isProduction = process.env.NODE_ENV === 'production'
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
@@ -21,7 +22,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
+      'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      '^': resolve('src/components'),
     },
     symlinks: false
   },
@@ -68,5 +71,9 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  // performance: {
+  //   maxEntrypointSize: 300000,
+  //   hints: isProduction ? 'warning' : false
+  // },
 }
