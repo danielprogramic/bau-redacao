@@ -70,7 +70,7 @@
     methods: {
       onToolbar(value) {
         this.rightDrawer = true;
-        this.toolbarItens = value[0];
+        this.toolbarItens = value[0]; 
         this.exibicao = value[0].exibicao;
       }
     },

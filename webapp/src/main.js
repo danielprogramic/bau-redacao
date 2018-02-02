@@ -8,6 +8,7 @@ import { sync } from 'vuex-router-sync'
 import store from '@/store/store'
 //import VueNVD3 from 'vue-nvd3'
 
+
 Vue.use(Vuetify, {
   theme: {
     primary: '#0A1F30',
