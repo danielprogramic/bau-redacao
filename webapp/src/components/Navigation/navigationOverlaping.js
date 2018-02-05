@@ -2,15 +2,6 @@ import Helpers from '@/mixins/Helper'
 import vue2Dropzone from 'vue2-dropzone'
 import 'vue2-dropzone/dist/vue2Dropzone.css'
 
-var example = `
-<vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions">
-....
-dropzoneOptions: {
-    url: 'https://httpbin.org/post',
-    thumbnailWidth: 150,
-    maxFilesize: 0.5,
-    headers: { "My-Awesome-Header": "header value" }
-}`
 
 export default {
   props: [
@@ -22,14 +13,25 @@ export default {
   data() {
     return {
       ok: true,
-      example: "````" + example + "````",
       dropzoneOptions: {
         url: 'https://httpbin.org/post',
-        thumbnailWidth: 150,
-        maxFilesize: 0.5,
+        // maxFilesize: 0.5,
         headers: { "My-Awesome-Header": "header value" },
         addRemoveLinks: true,
-        dictDefaultMessage: "Arraste seu arquivo..",
+        // maxFiles: 2,
+        previewTemplate: this.templatePreview(),
+        dictDefaultMessage: `
+          <img style="float: none; width: 140px; margin: 0 auto;" 
+          src="/static/uploadocs.png"></br>
+          <div class="dropzoneText">Arraste e solte seus arquivos em qualquer lugar ou</div>
+          <button style="padding: 6px 20px 20px 15px" class='btn bluedetail' type='button'>
+            <i style="color:#fff;" class="material-icons">
+              file_upload
+            </i>
+            <div style="color:#fff;">
+              Carregue seu arquivo
+            </div>
+          </button>`,
         autoProcessQueue: true,
         accept(file, done) {
           console.log(file);
@@ -98,6 +100,22 @@ export default {
     }
   },
   methods: {
+    templatePreview() {
+      return `
+      <div class="dz-preview dz-file-preview">
+      <div class="dz-image" style="width: 130px;height: 100px;">
+      <img data-dz-thumbnail /></div>
+      <div class="dz-details">
+          <div class="dz-size"><span data-dz-size></span></div>
+          <div class="dz-filename"><span data-dz-name></span></div>
+      </div>
+
+      <div class="dz-progress"><span class="dz-upload" data-dz-uploadprogress></span></div>
+      <div class="dz-error-message"><span data-dz-errormessage></span></div>
+      <div class="dz-success-mark"><i class="fa fa-check"></i></div>
+      <div class="dz-error-mark"><i class="fa fa-close"></i></div>
+      </div>`;
+    },
     close() {
       this.toolbarItens.habilitador = false;
       this.toolbarItens.removeNavOverlaping = false;
@@ -305,7 +323,7 @@ export default {
     console.log('CREATE OVERLAPING')
     this.timer = setTimeout(() => {
       this.toolbarItens.habilitador = true;
-    }, 500)
+    }, 0)
 
   },
   beforeDestroy() {
