@@ -59,6 +59,7 @@
       'dr-toolbar-sub': ToolBarSub,
       'dr-navigation': Navigation,
       'dr-navigation-overlaping': NavigationOverlaping,
+       //'dr-navigation-overlaping': () => import('@/components/Navigation/NavigationOverlaping'), */assincronamente
       'dr-footer': Footer,
     },
     data: () => ({
@@ -70,7 +71,8 @@
     methods: {
       onToolbar(value) {
         this.rightDrawer = true;
-        this.toolbarItens = value[0]; 
+        this.toolbarItens = value[0];
+        console.log(this.toolbarItens ) 
         this.exibicao = value[0].exibicao;
       }
     },

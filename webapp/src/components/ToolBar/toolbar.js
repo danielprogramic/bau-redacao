@@ -1,5 +1,8 @@
 import Helpers from '@/mixins/Helper'
 import VueSticky from 'vue-sticky';
+
+const MAIS = 'mais';
+
 export default {
   directives: {
     'sticky': VueSticky,

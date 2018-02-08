@@ -1,10 +1,7 @@
 <template>
-  <div class="navigation_overlaping">
-    <!-- <div style="margin-left:200px;background-color:yellow">
-            {{toolbarItens}}
-          </div> -->
+  <div v-if="initOverpaling(toolbarItens)" class="navigation_overlaping">
     <v-navigation-drawer class="secondary elevation-2 bordercard" v-bind:style="styleObjectOverlaping" v-bind:class="{'mg': !toolbarItens.habilitador }" temporary fixed :right="toolbarItens.exibicao" v-model="toolbarItens.habilitador">
-      <v-toolbar class="toolbarTitle" flat height="64">
+      <v-toolbar class="toolbarTitle elevation-1"  height="64">
         <v-icon style="color: #0A1F30" large>{{toolbarItens.icon }}</v-icon>
         <div class="toolbaRightLbl">{{toolbarItens.titulo}}</div>
         <v-spacer></v-spacer>
@@ -12,234 +9,12 @@
           <v-icon>close</v-icon>
         </v-btn>
       </v-toolbar>
-      <v-list>
-        <template v-for="(item, index) in getItens">
-                <!-- LISTA COM COLLAPSE -->
-                <v-list  two-line  v-bind:key="item.title">
-                <v-list-group  v-if="item.collapse"  v-bind:key="item.title" v-bind:class="{'navigation_overlaping-activeCorporation': item.collapse }" >
-                  <v-list-tile   slot="item" @click="">
-                    <v-list-tile-content>
-                      <v-list-tile-title v-bind:class="{'navigation_overlaping-color-black': item.collapse }"  >{{ item.perfilAtv }}</v-list-tile-title>
-                      <v-list-tile-title v-bind:class="{'navigation_overlaping-color-blue': item.collapse }"  >{{ item.empresa }}</v-list-tile-title>
-                      <v-list-tile-title v-bind:class="{'navigation_overlaping-color-black': item.collapse }"  >{{ item.cnpj }}</v-list-tile-title>
-                    </v-list-tile-content>
-                    <v-list-tile-action>
-                      <v-icon v-bind:class="{'navigation_overlaping-color-blue': item.collapse }" >arrow_drop_down</v-icon>
-                    </v-list-tile-action>
-                  </v-list-tile>
-                  <v-list-tile v-for="subItem in item.collapse" v-bind:key="subItem.title" @click="">
-                    <v-list-tile-content>
-                      <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
-                    </v-list-tile-content>
-                    <v-list-tile-action>
-                      <v-icon class="navigation_overlaping-color" >{{ subItem.action }}</v-icon>
-                    </v-list-tile-action>
-                  </v-list-tile>
-                </v-list-group>
-                </v-list>
-                  <!-- LISTA NORMAL -->
-                  <v-list-tile v-if="!item.collapse && !item.image && !item.upload"  avatar ripple @click="toggle(index)" :key="item.title">
-                    <v-list-tile-avatar>
-                      <v-icon class="navigation_overlaping-color" medium>{{ item.icon }}</v-icon>
-                    </v-list-tile-avatar>
-                    <v-list-tile-content>
-                      <v-list-tile-title >{{ item.title }}</v-list-tile-title>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                 <!-- LISTA NORMAL -->
-                 <div  v-if="item.image" :key="item.title">
-                 <v-card >
-                  <v-card-media height="800px" src="/static/menu.jpg" >
-                    <v-container fill-height fluid>
-                      <v-layout fill-height>
-                        <v-flex xs12 align-end flexbox>
-                        </v-flex>
-                      </v-layout>
-                    </v-container>
-                  </v-card-media>
-                </v-card>
-                 </div>
-                   <!-- UPLOAD ARQUIVOS-->
-         <div  v-if="item.upload" :key="item.title">
-
-          <vue-dropzone 
-              v-bind="{id: (dOver || dEntered)?'dropzoneOver':'dropzone'}"
-              @vdropzone-file-added="vfileAdded"
-              @vdropzone-success="vsuccess" 
-              @vdropzone-error="verror" 
-              @vdropzone-removed-file="vremoved" 
-              @vdropzone-sending="vsending" 
-              @vdropzone-success-multiple="vsuccessMuliple" 
-              @vdropzone-sending-multiple="vsendingMuliple" 
-              @vdropzone-queue-complete="vqueueComplete" 
-              @vdropzone-total-upload-progress="vprogress" 
-              @vdropzone-mounted="vmounted" 
-              @vdropzone-drop="vddrop" 
-              @vdropzone-drag-start="vdstart" 
-              @vdropzone-drag-end="vdend" 
-              @vdropzone-drag-enter="vdenter" 
-              @vdropzone-drag-over="vdover" 
-              @vdropzone-drag-leave="vdleave" 
-              :options="dropzoneOptions"
-              >
-          </vue-dropzone>
-        <!-- <h3>Events</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Event</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr :class="{ 'event-active' : isMounted }">
-                <td>1</td>
-                <td>vdropzone-mounted()</td>
-                <td>
-                  <i class="fa fa-circle" :class="{ 'active' : isMounted }"></i>
-                </td>
-              </tr>
-              <tr class="" :class="{ 'event-active' : fileAdded }">
-                <td>2</td>
-                <td>vdropzone-file-added(
-                  <code>file</code>)</td>
-                <td>
-                  <i class="fa fa-circle" :class="{ 'active' : fileAdded }"></i>
-                </td>
-              </tr>
-              <tr :class="{ 'event-active' : filesAdded }">
-                <td>3</td>
-                <td>vdropzone-files-added(
-                  <code>file</code>)</td>
-                <td>
-                  <i class="fa fa-circle" :class="{ 'active' : filesAdded }"></i>
-                </td>
-              </tr>
-              <tr :class="{ 'event-active' : success }">
-                <td>4</td>
-                <td>vdropzone-success(
-                  <code>file, response</code>)</td>
-                <td>
-                  <i class="fa fa-circle" :class="{ 'active' : success }"></i>
-                </td>
-              </tr>
-              <tr :class="{ 'event-active' : error }">
-                <td>5</td>
-                <td>vdropzone-error(
-                  <code>file</code>)</td>
-                <td>
-                  <i class="fa fa-circle" :class="{ 'active' : error }"></i>
-                </td>
-              </tr>
-              <tr :class="{ 'event-active' : removedFile }">
-                <td>6</td>
-                <td>vdropzone-removed-file(
-                  <code>file, error, xhr</code>)</td>
-                <td>
-                  <i class="fa fa-circle" :class="{ 'active' : removedFile }"></i>
-                </td>
-              </tr>
-              <tr :class="{ 'event-active' : sending }">
-                <td>7</td>
-                <td>vdropzone-sending(
-                  <code>file, xhr, formData</code>)</td>
-                <td>
-                  <i class="fa fa-circle" :class="{ 'active' : sending }"></i>
-                </td>
-              </tr>
-              <tr :class="{ 'event-active' : successMultiple }">
-                <td>8</td>
-                <td>vdropzone-success-multiple(
-                  <code>files, response</code>)</td>
-                <td>
-                  <i class="fa fa-circle" :class="{ 'active' : successMultiple }"></i>
-                </td>
-              </tr>
-              <tr :class="{ 'event-active' : sendingMultiple }">
-                <td>9</td>
-                <td>vdropzone-sending-multiple(
-                  <code>files, xhr, formData</code>)</td>
-                <td>
-                  <i class="fa fa-circle" :class="{ 'active' : sendingMultiple }"></i>
-                </td>
-              </tr>
-              <tr :class="{ 'event-active' : queueComplete }">
-                <td>10</td>
-                <td>vdropzone-queue-complete(
-                  <code>file, xhr, formData</code>)</td>
-                <td>
-                  <i class="fa fa-circle" :class="{ 'active' : queueComplete }"></i>
-                </td>
-              </tr>
-              <tr :class="{ 'event-active' : progress }">
-                <td>11</td>
-                <td>vdropzone-total-upload-progress(
-                  <code>totaluploadprogress, totalBytes, totalBytesSent</code>)</td>
-                <td>
-                  <i class="fa fa-circle" :class="{ 'active' : progress }"></i>
-                </td>
-              </tr>
-              <tr :class="{ 'event-active' : dDrop }">
-                <td>12</td>
-                <td>vdropzone-drag-drop(
-                  <code>event</code>)</td>
-                <td>
-                  <i class="fa fa-circle" :class="{ 'active' : dDrop }"></i>
-                </td>
-              </tr>
-              <tr :class="{ 'event-active' : dStarted }">
-                <td>13</td>
-                <td>vdropzone-drag-start(
-                  <code>event</code>)</td>
-                <td>
-                  <i class="fa fa-circle" :class="{ 'active' : dStarted }"></i>
-                </td>
-              </tr>
-              <tr :class="{ 'event-active' : dEnded }">
-                <td>14</td>
-                <td>vdropzone-drag-end(
-                  <code>event</code>)</td>
-                <td>
-                  <i class="fa fa-circle" :class="{ 'active' : dEnded }"></i>
-                </td>
-              </tr>
-              <tr :class="{ 'event-active' : dEntered }">
-                <td>15</td>
-                <td>vdropzone-drag-enter(
-                  <code>event</code>)</td>
-                <td>
-                  <i class="fa fa-circle" :class="{ 'active' : dEntered }"></i>
-                </td>
-              </tr>
-              <tr :class="{ 'event-active' : dOver }">
-                <td>16</td>
-                <td>vdropzone-drag-over(
-                  <code>event</code>)</td>
-                <td>
-                  <i class="fa fa-circle" :class="{ 'active' : dOver }"></i>
-                </td>
-              </tr>
-              <tr :class="{ 'event-active' : dLeave }">
-                <td>17</td>
-                <td>vdropzone-drag-leave(
-                  <code>event</code>)</td>
-                <td>
-                  <i class="fa fa-circle" :class="{ 'active' : dLeave }"></i>
-                </td>
-              </tr>
-            </tbody>
-          </table> -->
-                 </div>
-                  <div class="navigation_overlaping-divider" v-if="index + 1 < getItens.length" :key="item.title"></div>
-</template>
-            <center>
-              <div class="navigation_overlaping-divider"></div>
-            </center>   
+      <v-list >
+        <dr-navigationItens-mais  v-if="toolbarItens.name=='mais'" :itens="getItens" > </dr-navigationItens-mais>
+        <dr-navigationItens-home-conta  v-if="toolbarItens.name=='home_conta'" :itens="getItens" > </dr-navigationItens-home-conta>
           <v-list-tile 
           style="float:right;" 
-          @click="onLogout()"
-          >
+          @click="onLogout()">
               <v-list-tile-avatar>
                 <v-icon style="color: #0A1F30;" >exit_to_app</v-icon>
               <v-list-tile-content style="width:150px;">
@@ -252,70 +27,77 @@
   </div>
 </template>
 
-<script src="./navigationOverlaping.js">
-
-</script>
-
-<style src="./navigationoverlaping.less" lang="less" scoped>
+<script src="./navigationOverlaping.js"></script>
+<style src="./navigationoverlaping.less" lang="less" >
 
 </style>
 
-<style lang="css">
-  .dropzone{
+<style lang="css" >
+  .vue-dropzone{
     padding: 3px 3px  !important;
   }
-  .dropzone .dz-preview {
-    margin:1px;
+ .dz-preview {
+    margin:1px !important;;
   }
-  .dropzone .dz-preview .dz-image {
-    margin:1px;
+ .dz-preview .dz-image {
+    margin:1px !important;;
+    width: 130px !important;;
+    height: 100px !important;;
   }
-  .dropzone .dz-file-preview {
-    margin:1px;
+ .dz-file-preview {
+    margin:1px !important;;
   }
-  .dropzone .dz-preview .dz-progress .dz-upload {
-    background: #64c073;
-  }
-
-  .dropzone .dz-preview .dz-image>div {
-    width: inherit;
-    height: inherit;
-    border-radius: 50%;
-    background-size: contain;
-  }
-  .dropzone .dz-preview .dz-image>img {
-    width: 100%;
-  }
-  .dropzone .dz-preview .dz-details {
-    color: white;
-    border-radius: 4px;	
-    background: #00639c;
-    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
-    transition: opacity .2s linear;
-    text-align: center;
+ .dz-preview .dz-progress .dz-upload {
+    background: #64c073 !important;
   }
 
+ .dz-preview .dz-image>div {
+    width: inherit !important;;
+    height: inherit !important;;
+    border-radius: 50% !important;;
+    background-size: contain !important;;
+  }
+ .dz-preview .dz-image>img {
+    width: 100% !important;;
+  }
+ .dz-preview .dz-details {
+    color: white !important;;
+    border-radius: 4px !important;;	
+    background-color: #00639c !important;
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12) !important;;
+    transition: opacity .2s linear !important;;
+    text-align: center !important;;
+  }
+ .dz-file-preview .dz-details {
+    color: white !important;;
+    border-radius: 4px !important;;	
+    background-color: #00639c !important;
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12) !important;;
+    transition: opacity .2s linear !important;;
+    text-align: center !important;;
+  }
 
- .dropzone .dz-preview .dz-remove {
-    position: absolute;
-    z-index: 30;
-    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
-    background: #0a1f30;
-    border-radius: 4px;
+.dz-preview .dz-remove {
+    position: absolute !important;;
+    z-index: 30 !important;;
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12) !important;;
+    background: #0a1f30 !important;;
+    border-radius: 4px !important;;
     color: #00b4f1 !important;
-    padding: 10px;
-    margin-left:13px;
-    top: inherit;
-    bottom: 10px;
-    border: 0px white solid;
+    padding: 10px !important;;
+    margin-left:13px !important;;
+    top: inherit !important;;
+    bottom: 10px !important;;
+    border: 0px white solid !important;;
     text-decoration:none !important;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 1.1px;
-    opacity: 0;
+    text-transform: uppercase !important;;
+    font-size: 0.8rem !important;;
+    font-weight: 800 !important;;
+    letter-spacing: 1.1px !important;;
+    opacity: 1 !important;
+    display:none !important;
 }
- .dropzone .dz-preview .dz-remove a {
+ .dz-preview .dz-remove a {
    color:red;
  }
 
