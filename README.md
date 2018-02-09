@@ -4,7 +4,7 @@
 > Based on the VueJS 2.0 framework 
 
 ## Before dev
-1. NodeJs installed. v6.10.3
+1. NodeJs installed. v6.10.3+
 2. Npm 3+
 
 ## Folders
