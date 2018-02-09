@@ -72,7 +72,6 @@
       onToolbar(value) {
         this.rightDrawer = true;
         this.toolbarItens = value[0];
-        console.log(this.toolbarItens ) 
         this.exibicao = value[0].exibicao;
       }
     },

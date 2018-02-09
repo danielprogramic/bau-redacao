@@ -13,14 +13,17 @@
                   <v-icon v-bind:class="{'navigation_overlaping-color-blue': item.collapse }" >arrow_drop_down</v-icon>
               </v-list-tile-action>
             </v-list-tile>
-            <v-list-tile v-for="subItem in item.collapse" v-bind:key="subItem.title" @click="">
-              <v-list-tile-content>
+            <div style="width:95%;" v-for="subItem in item.collapse" v-bind:key="subItem.title" @click="">
+              <!-- <div>
                   <v-list-tile-title><b>{{ subItem.title }}}</b></v-list-tile-title>
-              </v-list-tile-content>
-              <v-list-tile-action>
+              </div>
+              <div>
                   <v-icon class="navigation_overlaping-color" >{{ subItem.action }}</v-icon>
-              </v-list-tile-action>
-            </v-list-tile>
+              </div> -->
+              <v-btn round color="bluedetail buttonwidth" dark>{{ subItem.title }}
+                 <v-icon right dark>{{ subItem.action }}</v-icon>
+              </v-btn>
+            </div>
         </v-list-group>
       </v-list>
 </template>
@@ -58,5 +61,8 @@
 </script>
 
 <style lang="less" scoped>
-
+  .buttonwidth{
+    width:100%;
+    display: inline-block;
+  }
 </style>

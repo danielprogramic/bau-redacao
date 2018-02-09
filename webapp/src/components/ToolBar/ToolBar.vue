@@ -33,7 +33,7 @@
             <v-icon style="font-size:29px;">{{item.icon}}</v-icon>
           </v-btn>
         </div>
-      <a class="navbar-brand" href="http://disputebills.com"><img src="/static/logo-domrock-nav.png" alt="Dispute Bills">
+      <a class="navbar-brand" href="https://domrock.com.br/" target="_blank"><img src="/static/logo-domrock-nav.png" alt="Dispute Bills">
         </a>
       </v-toolbar>
       <div v-if="$store.state.isUserLoggedIn" class="hidden-md-and-up" app>

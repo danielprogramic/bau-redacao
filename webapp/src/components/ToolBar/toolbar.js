@@ -1,8 +1,6 @@
 import Helpers from '@/mixins/Helper'
 import VueSticky from 'vue-sticky';
 
-const MAIS = 'mais';
-
 export default {
   directives: {
     'sticky': VueSticky,
@@ -14,7 +12,7 @@ export default {
     marcador: '',
     scrollPosition: 200,
     toolbar_obj_left: [{
-        name: 'modulos',
+        name: 'modulo',
         titulo: 'Módulos',
         icon: 'archive',
         marginLeft: 0,
@@ -72,11 +70,14 @@ export default {
   }),
   methods: {
     actionDrawer(tipo, type) {
-      this.marcador = tipo;
-      const arrayMulti = this['toolbar_obj_' + type];
-      const objAction = Helpers.filters.elements(arrayMulti, tipo, 'name');
-      objAction[0].removeNavOverlaping = true;
-      this.$emit('OnToolbar', objAction);
+      Object.assign(this.$data, this.$options.data())
+      setTimeout(() => {
+        this.marcador = tipo;
+        const arrayMulti = this['toolbar_obj_' + type];
+        const objAction = Helpers.filters.elements(arrayMulti, tipo, 'name');
+        objAction[0].removeNavOverlaping = true;
+        this.$emit('OnToolbar', objAction);
+      }, 20)
     }
   },
   mounted() {
