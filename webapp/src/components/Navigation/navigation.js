@@ -54,7 +54,7 @@ export default {
           iconeffecover: "navigation-icons",
           active: false,
           legenda: 'Gráfico',
-          path: ''
+          path: 'integridadetree'
         },
         {
           icon: 'forum',
