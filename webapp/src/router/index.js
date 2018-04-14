@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
-import Login from '@/components/Login/Login'
-import IntegridadeSumario from '@/components/Analysis/Integridade/Sumario'
-import IntegridadeDetalhe from '@/components/Analysis/Integridade/Detalhe'
-import IntegridadeTree from '@/components/Analysis/Integridade/LayoutTree'
+import Hello from '@/components/Hello.vue'
+import Login from '@/components/Login/Login.vue'
+import IntegridadeSumario from '@/components/Analysis/Integridade/Sumario.vue'
+import IntegridadeDetalhe from '@/components/Analysis/Integridade/Detalhe.vue'
+import IntegridadeTree from '@/components/Analysis/Integridade/LayoutTree.vue'
 //
-import QualicorpSumario from '@/components/Analysis/Qualicorp/Sumario'
-import QualicorpDetalhe from '@/components/Analysis/Qualicorp/Detalhe'
+import QualicorpSumario from '@/components/Analysis/Qualicorp/Sumario.vue'
+import QualicorpDetalhe from '@/components/Analysis/Qualicorp/Detalhe.vue'
 import AuthGuard from './auth-guard'
 
 Vue.use(Router)

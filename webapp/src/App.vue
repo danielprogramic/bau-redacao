@@ -7,12 +7,12 @@
     <dr-toolbar-sub v-if="$store.state.isUserLoggedIn">
     </dr-toolbar-sub>
     <v-content>
-
-      <div v-if="!$store.state.isUserLoggedIn" id="fullScreenDiv">
+      <!-- Esse bloco de codigo serve para o full com video -->
+      <!-- <div v-if="!$store.state.isUserLoggedIn" id="fullScreenDiv">
           <img src="/static/bg_prin.png" id="videosubstitute" alt="Full screen background video">
           <div id="videoDiv">           
               <video preload="preload" id="video" autoplay="autoplay" loop="loop">
-              <source src="/static/636796213.mp4" type="video/mp4"></source>
+              <source src="/static/636796213.mp4" type="video/mp4"/>
               </video> 
           </div>
           <div id="filterBox"> 
@@ -24,6 +24,11 @@
           </v-fade-transition>
               </div>
           </div>   
+      </div> -->
+      <div v-if="!$store.state.isUserLoggedIn" class="bg">
+        <v-fade-transition mode="out-in">
+          <router-view></router-view>
+        </v-fade-transition>
       </div>
       
       <v-container v-if="$store.state.isUserLoggedIn" fluid >
@@ -48,11 +53,11 @@
 </template>
 
 <script>
-  import Toolbar from '@/components/ToolBar/ToolBar'
-  import ToolBarSub from '@/components/ToolBar/ToolBarSub'
-  import Navigation from '@/components/Navigation/Navigation'
-  import NavigationOverlaping from '@/components/Navigation/NavigationOverlaping'
-  import Footer from '@/components/Footer'
+  import Toolbar from '@/components/ToolBar/ToolBar.vue'
+  import ToolBarSub from '@/components/ToolBar/ToolBarSub.vue'
+  import Navigation from '@/components/Navigation/Navigation.vue'
+  import NavigationOverlaping from '@/components/Navigation/NavigationOverlaping.vue'
+  import Footer from '@/components/Footer.vue'
   export default {
     components: {
       'dr-toolbar': Toolbar,
